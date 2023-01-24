@@ -35,18 +35,18 @@ const App = () => {
   const textAreaRef = useRef();
   const [textColor, setTextColor] = useState('#022b3a');
 
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/serviceWorker.js")
-        .then((registration) => {
-          console.log("Service worker registered: ", registration);
-        })
-        .catch((error) => {
-          console.log("Service worker registration failed: ", error);
-        });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if ("serviceWorker" in navigator) {
+  //     navigator.serviceWorker
+  //       .register("/serviceWorker.js")
+  //       .then((registration) => {
+  //         console.log("Service worker registered: ", registration);
+  //       })
+  //       .catch((error) => {
+  //         console.log("Service worker registration failed: ", error);
+  //       });
+  //   }
+  // }, []);
 
 
 
