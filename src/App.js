@@ -16,7 +16,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
-
+import GetAppIcon from '@mui/icons-material/GetApp';
 
 const App = () => {
   const [text, setText] = useState('');
@@ -35,18 +35,32 @@ const App = () => {
   const textAreaRef = useRef();
   const [textColor, setTextColor] = useState('#022b3a');
 
-  // useEffect(() => {
-  //   if ("serviceWorker" in navigator) {
-  //     navigator.serviceWorker
-  //       .register("/serviceWorker.js")
-  //       .then((registration) => {
-  //         console.log("Service worker registered: ", registration);
-  //       })
-  //       .catch((error) => {
-  //         console.log("Service worker registration failed: ", error);
-  //       });
-  //   }
-  // }, []);
+  const [promptEvent, setPromptEvent] = useState(null);
+  const [appAccepted, setAppAccepted] = useState(false);
+
+  let isAppInstalled = false;
+
+  if (window.matchMedia('(display-mode: standalone)').matches || appAccepted) {
+    isAppInstalled = true;
+  }
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    console.log(e)
+    setPromptEvent(e);
+  });
+
+  const installApp = () => {
+    promptEvent.prompt();
+    promptEvent.userChoice.then(result => {
+      if (result.outcome === 'accepted') {
+        setAppAccepted(true);
+        console.log('User accepted the A2HS prompt');
+      } else {
+        console.log('User dismissed the A2HS prompt');
+      }
+    });
+  };
 
 
 
@@ -392,6 +406,16 @@ const App = () => {
 
           label={isWhite ? "light" : "dark"}
         />
+        {console.log(promptEvent, !isAppInstalled)}
+        {promptEvent && !isAppInstalled && (
+          <IconButton content="Install App"
+            title="Install App"
+            onClick={installApp}>
+            <GetAppIcon />
+          </IconButton>
+        )}
+
+
       </div>
 
     </div>
