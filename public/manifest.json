@@ -5,21 +5,9 @@
   "background_color": "#fff",
   "display": "standalone",
   "orientation": "portrait",
+  "prefer_related_applications": false,
   "scope": "/",
   "start_url": "/",
-  "file_handlers": [
-    {
-      "action": "open-within-app",
-      "accept": [
-        {
-          "mime": "text/plain",
-          "extensions": [
-            "txt"
-          ]
-        }
-      ]
-    }
-  ],
   "icons": [
     {
       "src": "./icons/icon-72x72.png",
@@ -44,12 +32,14 @@
     {
       "src": "./icons/icon-152x152.png",
       "sizes": "152x152",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "./icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "./icons/icon-384x384.png",

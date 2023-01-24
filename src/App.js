@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css'; // import the CSS file
-import Modal from '@mui/material/Modal';
+
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import IconButton from '@mui/material/IconButton';
@@ -11,7 +11,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Box, Button, Switch } from '@mui/material';
+import { Switch } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 import UndoIcon from '@mui/icons-material/Undo';
@@ -34,19 +34,20 @@ const App = () => {
   const fileInputRef = useRef(null);
   const textAreaRef = useRef();
   const [textColor, setTextColor] = useState('#022b3a');
-  const [showModal, setShowModal] = useState(false);
-
 
   useEffect(() => {
-    if (!navigator.standalone) {
-      const mobile = window.matchMedia("(max-width: 767px)");
-
-      if (mobile.matches) {
-        // show modal
-        setShowModal(true);
-      }
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then((registration) => {
+          console.log("Service worker registered: ", registration);
+        })
+        .catch((error) => {
+          console.log("Service worker registration failed: ", error);
+        });
     }
   }, []);
+
 
 
 
@@ -59,26 +60,6 @@ const App = () => {
   };
 
 
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-
-  useEffect(() => {
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    });
-  }, []);
-
-  const showInstallPrompt = () => {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("User accepted the A2HS prompt");
-      } else {
-        console.log("User dismissed the A2HS prompt");
-      }
-      setDeferredPrompt(null);
-    });
-  };
 
   useEffect(() => {
     const countWords = () => {
@@ -274,22 +255,7 @@ const App = () => {
       style={{ backgroundColor: `#${isWhite ? 'd9e3ffc7' : 'ff86005a'}` }}
     >
 
-      <Modal
-        className="Install-Prompt"
-        open={showModal}
-        onClose={() => setShowModal(false)}
-        contentLabel="Install App"
-        hideBackdrop
 
-      >
-        <Box className="Install-Prompt-wrapper">
-          <p>This app can be installed on your device for easy access.</p>
-          <div>
-            <Button onClick={showInstallPrompt}>Install App</Button>
-            <Button onClick={() => setShowModal(false)}>Cancel</Button>
-          </div>
-        </Box>
-      </Modal>
 
       <div className="header"
         style={{ borderBottom: `2px solid #${isWhite ? '0466c8b5' : 'd0a090'}` }}>
