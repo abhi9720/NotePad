@@ -11,12 +11,12 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Box, Switch } from '@mui/material';
+import { Box, Button, Switch } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
-import { useReactPWAInstall } from "react-pwa-install";
+
 
 const App = () => {
   const [text, setText] = useState('');
@@ -35,7 +35,7 @@ const App = () => {
   const textAreaRef = useRef();
   const [textColor, setTextColor] = useState('#022b3a');
   const [showModal, setShowModal] = useState(false);
-  const { showInstallPrompt } = useReactPWAInstall();
+
 
   useEffect(() => {
     if (!navigator.standalone) {
@@ -50,18 +50,6 @@ const App = () => {
 
 
 
-  useEffect(() => {
-    const handleBeforeInstallPrompt = (event) => {
-      // Save the event to show it later
-      localStorage.setItem("beforeinstallprompt", JSON.stringify(event));
-    };
-
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-    return () => window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
-    // check for mobile device
-
-  }, []);
 
 
   const handleColorSelection = color => {
@@ -71,6 +59,26 @@ const App = () => {
   };
 
 
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  useEffect(() => {
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    });
+  }, []);
+
+  const showInstallPrompt = () => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the A2HS prompt");
+      } else {
+        console.log("User dismissed the A2HS prompt");
+      }
+      setDeferredPrompt(null);
+    });
+  };
 
   useEffect(() => {
     const countWords = () => {
@@ -277,8 +285,8 @@ const App = () => {
         <Box className="Install-Prompt-wrapper">
           <p>This app can be installed on your device for easy access.</p>
           <div>
-            <button onClick={showInstallPrompt}>Install App</button>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
+            <Button onClick={showInstallPrompt}>Install App</Button>
+            <Button onClick={() => setShowModal(false)}>Cancel</Button>
           </div>
         </Box>
       </Modal>
