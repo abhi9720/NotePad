@@ -405,7 +405,7 @@ const App = () => {
 
           label={isWhite ? "light" : "dark"}
         />
-        {console.log(promptEvent, !isAppInstalled)}
+
         {promptEvent && !isAppInstalled && (
           <IconButton content="Install App"
             title="Install App"
