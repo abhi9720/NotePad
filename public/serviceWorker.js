@@ -6,7 +6,7 @@ const urlsToCache = [
     "/logo192.png",
     "/logo512.png",
     "/Icon-notepad.png",
-    "/static/js/main.099a54bf.js", //<--- New Bundle Added
+    "/static/js/main.fec02f17.js", //<--- New Bundle Added
     "/static/css/main.b513de45.css", //<--- New Bundle Added
 ];
 

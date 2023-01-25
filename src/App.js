@@ -46,7 +46,6 @@ const App = () => {
 
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
-    console.log(e)
     setPromptEvent(e);
   });
 
