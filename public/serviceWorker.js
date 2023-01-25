@@ -2,10 +2,12 @@ const CACHE_NAME = 'calculator';
 const urlsToCache = [
     '/',
     'index.html',
-    'offline.html',
-    "/static/js/main.bd80fb27.js", //<--- New Bundle Added
-    "/static/css/main.7dc91d28.css", //<--- New Bundle Added
-
+    "/manifest.json",
+    "/logo192.png",
+    "/logo512.png",
+    "/Icon-notepad.png",
+    "/static/js/main.099a54bf.js", //<--- New Bundle Added
+    "/static/css/main.b513de45.css", //<--- New Bundle Added
 ];
 
 const self = this;
