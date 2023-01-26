@@ -46,7 +46,7 @@ const NewsContent = ({ newsArray, newsResults, loadmore, setloadmore }) => {
 
         {
           newsArray.map((newsItem) => (
-            <NewsCard newsItem={newsItem} key={newsItem.title} />
+            <NewsCard newsItem={newsItem} key={newsItem.name} />
           ))
         }
 

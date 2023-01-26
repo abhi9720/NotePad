@@ -6,7 +6,7 @@ import './newsapp.css'
 import Footer from "./components/Footer/Footer";
 import NavInshorts from "./components/NavInshorts";
 import NewsContent from "./components/NewsContent/NewsContent";
-import apikey from "./data/config";
+// import apikey from "./data/config";
 import { CircularProgress } from '@material-ui/core';
 
 const NewAPP = () => {
@@ -19,15 +19,27 @@ const NewAPP = () => {
     const [error, setError] = useState(null)
 
     const newsApi = async () => {
-
+        const options = {
+            method: 'GET',
+            url: 'https://bing-news-search1.p.rapidapi.com/news',
+            params: { safeSearch: 'Off', textFormat: 'Raw' },
+            headers: {
+                'X-BingApis-SDK': 'true',
+                'X-RapidAPI-Key': '41599ae506msh68285b0f476e7aep1fe9d9jsn13b33e53059e',
+                'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+            }
+        };
         try {
             setloading(true);
 
-            const news = await axios.get(
-                `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}&category=${category}&pageSize=${loadmore}`
-            );
-            setnewsArray(news.data.articles);
-            setnewsResults(news.data.totalResults);
+            const news = await axios.request(options);
+            console.log(news)
+
+            // const news = await axios.get(
+            //     `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}&category=${category}&pageSize=${loadmore}`
+            // );
+            setnewsArray(news.data.value);
+            setnewsResults(news.data.value.length);
 
             setError(null)
         } catch (error) {
