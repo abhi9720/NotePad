@@ -11,7 +11,7 @@ import { CircularProgress } from '@material-ui/core';
 
 const NewAPP = () => {
 
-    const [category, setCategory] = useState("general");
+    const [category, setCategory] = useState("India");
     const [newsArray, setnewsArray] = useState([]);
     const [newsResults, setnewsResults] = useState();
     const [loadmore, setloadmore] = useState(20);
@@ -22,7 +22,15 @@ const NewAPP = () => {
         const options = {
             method: 'GET',
             url: 'https://bing-news-search1.p.rapidapi.com/news',
-            params: { safeSearch: 'Off', textFormat: 'Raw' },
+            params: {
+                count: '30',
+                offset: '50',
+                originalImg: 'true',
+                category: `${category}`,
+                cc: 'IN',
+                safeSearch: 'Off',
+                textFormat: 'Raw'
+            },
             headers: {
                 'X-BingApis-SDK': 'true',
                 'X-RapidAPI-Key': '41599ae506msh68285b0f476e7aep1fe9d9jsn13b33e53059e',
@@ -33,7 +41,7 @@ const NewAPP = () => {
             setloading(true);
 
             const news = await axios.request(options);
-            console.log(news)
+
 
             // const news = await axios.get(
             //     `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}&category=${category}&pageSize=${loadmore}`

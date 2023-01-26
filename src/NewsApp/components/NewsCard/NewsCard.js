@@ -14,48 +14,55 @@ const NewsCard = ({ newsItem }) => {
   const time = hour > 12 ? true : false;
 
   return (
-    <div className="newsCard">
-      {newsItem.image && <img
-        src={
+    <a href={newsItem.url} target="__blank" className="source">
+      <div className="newsCard">
+        <div className="newcardimg">
+          {newsItem.image && <img
+            src={
 
-          newsItem.image.thumbnail.contentUrl
+              newsItem.image.thumbnail.contentUrl
 
-        }
-        alt={newsItem.name}
-        className="newsImage"
-      />
-      }
-      <div className="newsText">
-        <div>
-          {<span className="title">{newsItem.name}</span>}
+            }
+            width={newsItem.image.thumbnail.contentUrl?.width}
+            height={newsItem.image.thumbnail.contentUrl?.height || 236}
+            alt={newsItem.name}
+            className="newsImage"
+          />
+          }
 
-          <br />
+        </div>
+        <div className="newsText">
+          <div>
+            {<span className="title">{newsItem.name}</span>}
 
-          <span className="author">
-            <a href={newsItem.url} target="__blank">
-              <b>short </b>
-            </a>{" "}
-            <span className="muted">
-              {" "}
-              by {newsItem?.provider[0].name ? newsItem?.provider[0].name : "unknown"} / {" "}
-              {time
-                ? `${hour - 12}:${date[4].substring(3, 5)} pm`
-                : `${hour}:${date[4].substring(3, 5)} am`}{" "}
-              on {date[2]} {date[1]} {date[3]}, {date[0]}
+            <br />
+
+            <span className="author">
+              <a href={newsItem.url} target="__blank">
+                <b>short </b>
+              </a>{" "}
+              <span className="muted">
+                {" "}
+                by {newsItem?.provider[0].name ? newsItem?.provider[0].name : "unknown"} / {" "}
+                {time
+                  ? `${hour - 12}:${date[4].substring(3, 5)} pm`
+                  : `${hour}:${date[4].substring(3, 5)} am`}{" "}
+                on {date[2]} {date[1]} {date[3]}, {date[0]}
+              </span>
             </span>
-          </span>
-          <div className="lowernewsText">
-            <div className="description">{newsItem.description}</div>
-            <span className="readmore">
-              read more at{" "}
-              <a href={newsItem.url} target="__blank" className="source">
+            <div className="lowernewsText">
+              <div className="description">{newsItem.description}</div>
+              <span className="readmore">
+                read more at{" "}
+
                 <b>{newsItem?.provider[0].name}</b>
-              </a>
-            </span>
+
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

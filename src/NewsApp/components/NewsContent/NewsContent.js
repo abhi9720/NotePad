@@ -41,7 +41,7 @@ const NewsContent = ({ newsArray, newsResults, loadmore, setloadmore }) => {
         </Breadcrumbs>
       </div>
 
-      <div div className="content" >
+      <div className="content" >
 
 
         {

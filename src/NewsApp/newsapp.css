@@ -3,6 +3,12 @@ body {
     background-color: #fff !important;
 }
 
+#root,
+.App {
+    width: 100vw;
+    margin: 0 !important;
+}
+
 .loadercss {
     width: 100vw;
     height: 100vh;
