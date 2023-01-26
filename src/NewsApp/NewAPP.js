@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import NavInshorts from "./components/NavInshorts";
 import NewsContent from "./components/NewsContent/NewsContent";
 import apikey from "./data/config";
+import { CircularProgress } from '@material-ui/core';
 
 const NewAPP = () => {
 
@@ -14,21 +15,27 @@ const NewAPP = () => {
     const [newsArray, setnewsArray] = useState([]);
     const [newsResults, setnewsResults] = useState();
     const [loadmore, setloadmore] = useState(20);
+    const [loading, setloading] = useState(false);
+    const [error, setError] = useState(null)
 
     const newsApi = async () => {
 
         try {
+            setloading(true);
 
             const news = await axios.get(
                 `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}&category=${category}&pageSize=${loadmore}`
             );
             setnewsArray(news.data.articles);
             setnewsResults(news.data.totalResults);
-            console.log(news.data.articles)
-            console.log(news.data.totalResults)
 
+            setError(null)
         } catch (error) {
             console.log(error);
+            setError(error)
+        }
+        finally {
+            setloading(false);
         }
     };
 
@@ -42,7 +49,21 @@ const NewAPP = () => {
     return (
         <div className="App">
             <NavInshorts setCategory={setCategory} />
-            <NewsContent setloadmore={setloadmore} loadmore={loadmore} newsArray={newsArray} newsResults={newsResults} />
+            {
+                loading ?
+                    <div className='loadercss'>
+                        <CircularProgress />
+                        <p>Loading...</p>
+                    </div>
+
+                    :
+                    <NewsContent setloadmore={setloadmore} loadmore={loadmore} newsArray={newsArray} newsResults={newsResults} />
+            }
+            {
+                error && <>
+                    <p>{error}</p>
+                </>
+            }
             <Footer />
         </div>
     )
