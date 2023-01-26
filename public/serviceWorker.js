@@ -1,13 +1,16 @@
-const CACHE_NAME = 'calculator';
+const CACHE_NAME = 'repidApps';
 const urlsToCache = [
     '/',
     'index.html',
     "/manifest.json",
     "/logo192.png",
     "/logo512.png",
+    "/navbarlogo.png",
+    "/NewsAppicon.png",
+    "Icon-todo.png",
     "/Icon-notepad.png",
-    "/static/js/main.440d16eb.js", //<--- New Bundle Added
-    "/static/css/main.2551a27f.css", //<--- New Bundle Added
+    "/static/js/main.92f4c0a3.js", //<--- New Bundle Added
+    "/static/css/main.183714dc.css", //<--- New Bundle Added
 ];
 
 const self = this;

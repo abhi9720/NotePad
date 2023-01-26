@@ -12,9 +12,6 @@ body {
     overflow: hidden;
 }
 
-.MuiBreadcrumbs-li {
-    cursor: pointer !important;
-}
 
 .todoform {
     margin-top: 20px;

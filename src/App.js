@@ -9,6 +9,7 @@ import {
 import Notepad from './Notepad/Notepad';
 import Todo from './ToDO/Todo';
 import Home from './Home';
+import NewAPP from './NewsApp/NewAPP';
 
 
 
@@ -19,13 +20,12 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />}>
-
         </Route>
         <Route path="/notepad" element={<Notepad />}>
-
         </Route>
         <Route path="/todo" element={<Todo />}>
-
+        </Route>
+        <Route path="/news" element={<NewAPP />}>
         </Route>
 
       </Routes>

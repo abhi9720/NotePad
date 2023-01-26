@@ -6,9 +6,9 @@ const Navbar = () => {
         <>
             <div className="navbar">
 
-                <div className="css-1w47qe3 css-1h3rtzg css-f7ay7b css-1dmmgga css-zjik7">
+                <div >
                     <NavLink to="/">
-                        <img className='logoapp' src="../../logomain.svg" alt="logoapp" />
+                        <img className='logoapp' src="../../navbarlogo.png" alt="logoapp" />
                     </NavLink>
                 </div>
 

@@ -31,6 +31,11 @@ const Home = () => {
                 <NavLink to="/notepad">
                     <Card imgurl={'../../../Icon-notepad.png'} text="Note Pad"></Card>
                 </NavLink>
+                <NavLink to="/news">
+                    <Card imgurl={'../../../NewsAppicon.png'} text="News"></Card>
+                </NavLink>
+
+
 
             </div>
         </>

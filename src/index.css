@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiBreadcrumbs-li a .MuiChip-root {
+  cursor: pointer !important;
+  color: #1A2027 !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background-color: white;
+}
