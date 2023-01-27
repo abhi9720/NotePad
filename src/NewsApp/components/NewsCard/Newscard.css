@@ -14,7 +14,7 @@
 }
 
 .newcardimg {
-  background-color: rgba(0, 0, 0, 0.511);
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
