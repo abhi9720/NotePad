@@ -11,7 +11,7 @@ import { CircularProgress } from '@material-ui/core';
 
 const NewAPP = () => {
 
-    const [category, setCategory] = useState("India");
+    const [category, setCategory] = useState("Politics");
     const [newsArray, setnewsArray] = useState([]);
     const [newsResults, setnewsResults] = useState();
     const [loadmore, setloadmore] = useState(20);
@@ -77,7 +77,10 @@ const NewAPP = () => {
                     </div>
 
                     :
-                    <NewsContent setloadmore={setloadmore} loadmore={loadmore} newsArray={newsArray} newsResults={newsResults} />
+                    <>
+
+                        <NewsContent category={category} setloadmore={setloadmore} loadmore={loadmore} newsArray={newsArray} newsResults={newsResults} />
+                    </>
             }
             {
                 error && <>

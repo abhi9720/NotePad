@@ -1,5 +1,6 @@
 import React from "react";
 import "./Newscard.css";
+import { Typography } from "@material-ui/core";
 
 const NewsCard = ({ newsItem }) => {
   // console.log(newsItem);
@@ -14,8 +15,10 @@ const NewsCard = ({ newsItem }) => {
   const time = hour > 12 ? true : false;
 
   return (
-    <a href={newsItem.url} target="__blank" className="source">
-      <div className="newsCard">
+
+    <div className="newsCard">
+      <a href={newsItem.url} target="__blank" className="source">
+
         <div className="newcardimg">
           {newsItem.image && <img
             src={
@@ -33,14 +36,15 @@ const NewsCard = ({ newsItem }) => {
         </div>
         <div className="newsText">
           <div>
-            {<span className="title">{newsItem.name}</span>}
+            {<Typography variant="h5" className="title">{newsItem.name}</Typography>}
 
             <br />
+            <Typography className="author" variant="caption" display="block" gutterBottom>
 
-            <span className="author">
               <a href={newsItem.url} target="__blank">
                 <b>short </b>
               </a>{" "}
+
               <span className="muted">
                 {" "}
                 by {newsItem?.provider[0].name ? newsItem?.provider[0].name : "unknown"} / {" "}
@@ -49,11 +53,12 @@ const NewsCard = ({ newsItem }) => {
                   : `${hour}:${date[4].substring(3, 5)} am`}{" "}
                 on {date[2]} {date[1]} {date[3]}, {date[0]}
               </span>
-            </span>
+
+            </Typography>
             <div className="lowernewsText">
               <div className="description">{newsItem.description}</div>
               <span className="readmore">
-                read more at{" "}
+                <span >read more at{" "}</span>
 
                 <b>{newsItem?.provider[0].name}</b>
 
@@ -61,8 +66,9 @@ const NewsCard = ({ newsItem }) => {
             </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
+
   );
 };
 

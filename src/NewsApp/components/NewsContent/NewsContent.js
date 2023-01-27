@@ -1,5 +1,5 @@
-import { Button, Container } from "@material-ui/core";
-import React, { Fragment } from "react";
+import { Button, Typography } from "@material-ui/core";
+import React from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsContent.css"
 import { Breadcrumbs, Chip } from '@material-ui/core';
@@ -8,9 +8,9 @@ import { NavLink } from 'react-router-dom';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import HomeIcon from '@mui/icons-material/Home';
 
-const NewsContent = ({ newsArray, newsResults, loadmore, setloadmore }) => {
+const NewsContent = ({ category, newsArray, newsResults, loadmore, setloadmore }) => {
   return (
-    <Container className="NewsContentContainer">
+    <div className="NewsContentContainer">
 
       <div className="breadcum">
         <Breadcrumbs aria-label="breadcrumb">
@@ -31,15 +31,20 @@ const NewsContent = ({ newsArray, newsResults, loadmore, setloadmore }) => {
             underline="hover"
             sx={{ display: 'flex', alignItems: 'center' }}
             color="inherit"
-            to="/todo"
+            to="/news"
           >
 
             <Chip icon={<NewspaperIcon />} label="News" />
 
 
           </NavLink>
+          <Typography align='center'>
+            {category}
+          </Typography>
         </Breadcrumbs>
+
       </div>
+
 
       <div className="content" >
 
@@ -64,7 +69,7 @@ const NewsContent = ({ newsArray, newsResults, loadmore, setloadmore }) => {
         }
 
       </div >
-    </Container>
+    </div>
   );
 };
 

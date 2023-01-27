@@ -120,31 +120,9 @@ body {
     max-height: calc(100vh - 178px);
 
     overflow: auto;
-    scrollbar-width: thin;
+
 }
 
-.todoInput::-webkit-scrollbar {
-    width: 1px;
-}
-
-.todo-list::-webkit-scrollbar {
-    width: 7px;
-}
-
-/* Track */
-.todo-list::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-.todo-list::-webkit-scrollbar-thumb {
-    background: rgba(136, 136, 136, 0.801);
-}
-
-/* Handle on hover */
-.todo-list::-webkit-scrollbar-thumb:hover {
-    background: rgba(85, 85, 85, 0.783);
-}
 
 
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -15,12 +15,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import categories from '../data/categories';
+import { SwipeableDrawer } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
   list: {
     width: 200,
-    paddingLeft: 10,
+    paddingbottom: 10,
     paddingRight: 5
   },
   fullList: {
@@ -31,9 +32,22 @@ const useStyles = makeStyles({
 export default function TemporaryDrawer({ setCategory }) {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    left: false,
+    bottom: false,
 
   });
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    function resizehappend() {
+      if (window.innerWidth <= 700) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    }
+    window.addEventListener("resize", resizehappend, false);
+  }, []);
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
@@ -60,7 +74,7 @@ export default function TemporaryDrawer({ setCategory }) {
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+        [classes.fullList]: anchor === 'top' || anchor === isMobile ? "bottom" : "left",
       })}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
@@ -86,12 +100,12 @@ export default function TemporaryDrawer({ setCategory }) {
 
   return (
     <div>
-      <React.Fragment key={'left'}>
-        <Button onClick={toggleDrawer('left', true)}><MenuIcon /></Button>
+      <React.Fragment key={isMobile ? "bottom" : "left"}>
+        <Button onClick={toggleDrawer(isMobile ? "bottom" : "left", true)}><MenuIcon /></Button>
         <ThemeProvider theme={theme}>
-          <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
-            {list('left')}
-          </Drawer>
+          <SwipeableDrawer anchor={isMobile ? "bottom" : "left"} open={state[isMobile ? "bottom" : "left"]} onClose={toggleDrawer(isMobile ? "bottom" : "left", false)}>
+            {list(isMobile ? "bottom" : "left")}
+          </SwipeableDrawer>
         </ThemeProvider>
       </React.Fragment>
 
