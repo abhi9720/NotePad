@@ -1,21 +1,33 @@
 #root {
-  height: 100vh;
   width: 100vw;
-  background: #f0f4fc;
+  background: #f7fafc;
 }
 
-.Cardlist {
-  padding-top: 64px;
-  box-sizing: border-box;
+
+.homepageheading {
+  color: rgb(36 62 99);
+  text-align: center;
+}
+
+.highlight {
+  color: rgb(100 21 255);
+}
+
+
+.Homepage {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  flex-direction: column;
   height: 100vh;
-  gap: 20px;
-  border: 1px solid;
-  user-select: none !important;
+}
 
+.Cardlist {
+  flex: 1 !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -24,14 +36,15 @@
   height: 200px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(154, 160, 185, .05), 0 15px 40px rgba(166, 173, 201, .2);
+  border: 3px rgb(226, 232, 240);
+  border-style: dashed;
+
 
 }
 
 .cardmedia {
   width: 160px;
   height: 160px;
-
   width: 100%;
   display: flex;
   justify-content: center;
@@ -44,19 +57,41 @@ a {
 
 }
 
+.cardwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+
+
+.connect_withme {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(26 32 44);
+  padding: 20px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media(max-width:700px) {
   .Cardlist {
     flex-direction: column;
+    min-height: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding-top: 404px;
+    padding-bottom: 30px;
 
   }
 
   .card {
     width: 300px;
     height: 170px;
-
-
-
-
   }
 
   .cardmedia {
@@ -69,4 +104,6 @@ a {
     justify-content: center;
     align-items: center;
   }
+
+
 }

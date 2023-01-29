@@ -5,10 +5,9 @@
   padding: 10px;
   border-radius: 15px;
   box-shadow: 0px 9px 20px rgb(46 35 94 / 7%);
-
+  background-color: white;
   padding: 10px;
   margin: 15px 10px;
-
   display: inline-block;
   column-break-inside: avoid;
 }

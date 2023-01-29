@@ -31,7 +31,7 @@ const NewAPP = () => {
             method: 'GET',
             url: 'https://bing-news-search1.p.rapidapi.com/news/search',
             params: {
-                q: searchTerm || category,
+                q: searchTerm,
                 freshness: 'Day',
                 originalImg: 'true',
                 textFormat: 'Raw',
@@ -67,10 +67,8 @@ const NewAPP = () => {
     const newsApi = async () => {
         const options = {
             method: 'GET',
-            url: 'https://bing-news-search1.p.rapidapi.com/news',
+            url: 'https://bing-news-search1.p.rapidapi.com/news/search',
             params: {
-                count: '30',
-                offset: '50',
                 originalImg: 'true',
                 category: `${category}`,
                 cc: 'IN',
@@ -135,7 +133,7 @@ const NewAPP = () => {
                             underline="hover"
                             sx={{ display: 'flex', alignItems: 'center' }}
                             color="inherit"
-                            to="/todo"
+                            to="/news"
                         >
 
                             <Chip icon={<NewspaperIcon />} label="News" />
@@ -153,6 +151,7 @@ const NewAPP = () => {
                     <div className="searchBarWrapper">
                         <form onSubmit={handleSubmit}>
                             <input
+                                autoFocus
                                 type="text"
                                 placeholder="Search..."
                                 value={searchTerm}

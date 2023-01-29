@@ -15,6 +15,8 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+
+
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -292,6 +294,7 @@ input[type="number"] {
     .header {
         padding: 5px 5px 0px 5px;
         box-sizing: border-box;
+        padding-top: 60px;
     }
 
     .header select {

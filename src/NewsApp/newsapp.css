@@ -1,12 +1,13 @@
-#root,
 body {
     background-color: #fff !important;
 }
 
-#root,
+
 .App {
     width: 100vw;
     margin: 0 !important;
+    min-height: 100vh;
+    background-color: white;
 }
 
 .loadercss {
@@ -21,6 +22,7 @@ body {
 
 .newsAppWrapper {
     padding-top: 70px;
+    position: relative;
 }
 
 .searchBar {
@@ -29,12 +31,11 @@ body {
     justify-content: center;
     align-items: center;
     padding: 5px;
-    margin-top: 10px;
-
+    margin-top: 55px;
 }
 
 .searchBarWrapper {
-    width: 60vw;
+    width: 77vw;
     display: flex;
     justify-content: center;
     align-items: center;
