@@ -15,10 +15,10 @@ export default function TodoItem({
                 <div className="todoItemAction">
                     <IconButton onClick={() => onEditClick(todo)}>
 
-                        <ModeEditIcon></ModeEditIcon>
+                        <ModeEditIcon color='primary'></ModeEditIcon>
                     </IconButton>
                     <IconButton onClick={() => onDeleteClick(todo.id)}>
-                        <HighlightOffIcon></HighlightOffIcon>
+                        <HighlightOffIcon style={{ color: "#f50057" }}></HighlightOffIcon>
                     </IconButton>
                 </div>
             </div>

@@ -13,7 +13,10 @@ export default function EditForm({
             {/* <label htmlFor="updateTodo">Update todo: </label> */}
             <div className="todoActionWrapper">
                 <div className="todoInputWrapper">
-                    <input
+                    <textarea
+
+                        rows={3}
+                        max-rows={3}
                         className="todoInput"
                         name="updateTodo"
                         type="text"
@@ -24,12 +27,13 @@ export default function EditForm({
                 </div>
                 <div className="editformbtngrp">
                     <Button
-                        size="medium" className="todobtn"
+                        size="small"
+                        variant="contained"
                         type="submit" onClick={onEditFormSubmit}>
                         Update
                     </Button>
                     <Button
-                        size="medium" className="todobtn"
+                        size="small" variant="contained"
                         onClick={() => setIsEditing(false)}>Cancel</Button>
                 </div>
             </div>

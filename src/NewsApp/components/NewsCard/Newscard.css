@@ -13,13 +13,30 @@
   column-break-inside: avoid;
 }
 
+.newcardimg img {
+  border-radius: 6px;
+
+}
+
 .newcardimg {
   background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px !important;
+  max-height: 200px !;
 }
+
+.orginalnewsImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.newsImage {
+  max-height: inherit;
+  max-width: 60% !important;
+}
+
 
 .newsText {
   padding: 20px 0 20px 0px;
@@ -110,7 +127,10 @@
 
   }
 
-  .newsImage {}
+  .newcardimg,
+  .newcardimg img {
+    border-radius: 10px;
+  }
 
 
 

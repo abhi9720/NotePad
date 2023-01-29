@@ -1,75 +1,38 @@
-import { Button, Typography } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import React from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsContent.css"
-import { Breadcrumbs, Chip } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
 
-import NewspaperIcon from '@mui/icons-material/Newspaper';
-import HomeIcon from '@mui/icons-material/Home';
 
-const NewsContent = ({ category, newsArray, newsResults, loadmore, setloadmore }) => {
+const NewsContent = ({ newsArray, newsResults, loadmore, setloadmore }) => {
   return (
-    <div className="NewsContentContainer">
-
-      <div className="breadcum">
-        <Breadcrumbs aria-label="breadcrumb">
-          <NavLink
-            underline="hover"
-            sx={{ display: 'flex', alignItems: 'center' }}
-            color="inherit"
-            to="/"
-          >
-
-            <Chip icon={<HomeIcon />} label="Home" />
 
 
 
-          </NavLink>
-
-          <NavLink
-            underline="hover"
-            sx={{ display: 'flex', alignItems: 'center' }}
-            color="inherit"
-            to="/news"
-          >
-
-            <Chip icon={<NewspaperIcon />} label="News" />
+    <div className="content" >
 
 
-          </NavLink>
-          <Typography align='center'>
-            {category}
-          </Typography>
-        </Breadcrumbs>
-
-      </div>
+      {
+        newsArray.map((newsItem) => (
+          <NewsCard newsItem={newsItem} key={newsItem.name} />
+        ))
+      }
 
 
-      <div className="content" >
+      {
+        loadmore <= newsResults && (
+          <>
+            <hr />
+            <Button variant="text" className="loadMore" onClick={() => setloadmore(loadmore + 20)}>
+              Load  More
+            </Button>
+          </>
 
+        )
+      }
 
-        {
-          newsArray.map((newsItem) => (
-            <NewsCard newsItem={newsItem} key={newsItem.name} />
-          ))
-        }
+    </div >
 
-
-        {
-          loadmore <= newsResults && (
-            <>
-              <hr />
-              <Button variant="text" className="loadMore" onClick={() => setloadmore(loadmore + 20)}>
-                Load  More
-              </Button>
-            </>
-
-          )
-        }
-
-      </div >
-    </div>
   );
 };
 

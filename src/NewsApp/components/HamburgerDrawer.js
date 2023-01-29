@@ -101,7 +101,7 @@ export default function TemporaryDrawer({ setCategory }) {
   return (
     <div>
       <React.Fragment key={isMobile ? "top" : "left"}>
-        <Button onClick={toggleDrawer(isMobile ? "top" : "left", true)}><MenuIcon /></Button>
+        <Button className='menubtncustom' onClick={toggleDrawer(isMobile ? "top" : "left", true)}><MenuIcon color='primary' /></Button>
         <ThemeProvider theme={theme}>
           <SwipeableDrawer anchor={isMobile ? "top" : "left"} open={state[isMobile ? "top" : "left"]} onClose={toggleDrawer(isMobile ? "top" : "left", false)}>
             {list(isMobile ? "top" : "left")}

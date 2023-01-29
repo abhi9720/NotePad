@@ -18,3 +18,64 @@ body {
     flex-direction: column;
     gap: 10px;
 }
+
+.newsAppWrapper {
+    padding-top: 70px;
+}
+
+.searchBar {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-top: 10px;
+
+}
+
+.searchBarWrapper {
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.searchBarWrapper form {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 10px;
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.searchBarWrapper form svg {
+    color: #0d42ff;
+    font-size: 2rem;
+}
+
+.searchBarWrapper form input {
+    flex: 1;
+    font-size: 1.2rem;
+    padding: 10px;
+    outline: none;
+    background-color: #f7f7f7;
+    border: none;
+    border-radius: 10px;
+}
+
+.searchBarWrapper form input :focus {
+    outline: none;
+    border: none;
+}
+
+@media(max-width:700px) {
+
+    .searchBarWrapper {
+        width: 100vw;
+    }
+}

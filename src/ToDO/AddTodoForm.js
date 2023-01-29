@@ -13,8 +13,9 @@ export default function AddTodoForm({
             <div className="todoActionWrapper">
                 <div className="todoInputWrapper">
                     <textarea
+
+                        rows={3}
                         max-rows={3}
-                        rows={1}
 
                         className="todoInput"
                         name="todo"
@@ -24,7 +25,9 @@ export default function AddTodoForm({
                         onChange={onAddInputChange}
                     />
                 </div>
-                <Button type="submit" size="medium" className="todobtn" >
+                <Button
+
+                    variant="contained" type="submit" size="xlarge"  >
                     Add
                 </Button>
             </div>

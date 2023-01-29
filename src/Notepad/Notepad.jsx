@@ -4,7 +4,7 @@ import './style.css'; // import the CSS file
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import IconButton from '@mui/material/IconButton';
-import SaveIcon from '@mui/icons-material/Save';
+import CloudDownload from '@mui/icons-material/CloudDownload';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -338,7 +338,7 @@ const Notepad = () => {
                     </IconButton>
 
                     <IconButton onClick={handleDownload} title="Save file">
-                        <SaveIcon />
+                        <CloudDownload />
                         <span className={togglenav ? "btntexthide" : "btntext"}> Save</span>
                     </IconButton>
 

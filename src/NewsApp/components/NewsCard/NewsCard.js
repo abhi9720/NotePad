@@ -19,18 +19,40 @@ const NewsCard = ({ newsItem }) => {
     <div className="newsCard">
       <a href={newsItem.url} target="__blank" className="source">
 
-        <div className="newcardimg">
-          {newsItem.image && <img
-            src={
+        <div className="newcardimg" style={newsItem.image?.contentUrl ? {} : { maxHeight: '200px' }}>
+          {newsItem.image &&
+            <>
+              {
 
-              newsItem.image.thumbnail.contentUrl
+                newsItem.image.contentUrl
+                  ?
 
-            }
-            width={newsItem.image.thumbnail.contentUrl?.width}
-            height={newsItem.image.thumbnail.contentUrl?.height || 236}
-            alt={newsItem.name}
-            className="newsImage"
-          />
+
+                  <img
+                    src={
+                      newsItem.image.contentUrl
+                    }
+                    className="orginalnewsImage"
+                    alt={newsItem.name}
+                  />
+
+                  :
+                  <img
+                    src={
+                      newsItem.image.thumbnail.contentUrl
+                    }
+                    width={newsItem.image.thumbnail.width}
+                    height={newsItem.image.thumbnail.height}
+                    alt={newsItem.name}
+                    className="newsImage"
+
+                  />
+
+              }
+            </>
+
+
+
           }
 
         </div>
