@@ -7,6 +7,7 @@
 .homepageheading {
   color: rgb(36 62 99);
   text-align: center;
+  margin-bottom: 30px !important;
 }
 
 .highlight {
@@ -19,28 +20,33 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+
+
 }
 
 .Cardlist {
-  flex: 1 !important;
-
+  height: calc(100vh - 19.431vh);
+  margin-top: 10.46vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  flex: 1;
 
 }
 
 .card {
   width: 300px;
   height: 200px;
-  background-color: white;
   border-radius: 10px;
-  border: 3px rgb(226, 232, 240);
+  border: 3px rgb(179, 212, 254);
   border-style: dashed;
-
-
+  position: relative;
+  background-color: transparent;
 }
+
+
 
 .cardmedia {
   width: 160px;
@@ -71,21 +77,20 @@ a {
 .connect_withme {
   width: 100%;
   height: 60px;
-  background-color: rgb(26 32 44);
+  background-color: #172b4d;
   padding: 20px 25px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@media(max-width:700px) {
+@media(max-width:1000px) {
   .Cardlist {
     flex-direction: column;
-    min-height: fit-content;
     justify-content: center;
     align-items: center;
-    padding-top: 404px;
-    padding-bottom: 30px;
+    padding: 10px 0px 84px 0;
+    overflow-y: scroll;
 
   }
 

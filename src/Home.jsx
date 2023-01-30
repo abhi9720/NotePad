@@ -34,6 +34,7 @@ const Home = () => {
                     <span className='highlight'>
                         <b>one spot</b>
                     </span>
+
                 </Typography>
                 <div className='cardwrapper'>
                     <NavLink to="/todo">

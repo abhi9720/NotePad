@@ -10,7 +10,7 @@
 
 .todoform {
 
-    margin-top: 60px;
+    margin-top: 56px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -132,10 +132,11 @@
     background-color: white;
     margin-bottom: 1rem;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    padding: 5px;
     font-size: 16px;
     font-family: "Roboto", sans-serif;
     color: #10182f;
+    height: fit-content;
 }
 
 .todoItemWrapper {
@@ -147,8 +148,9 @@
 
 .todoItemAction {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    height: 100% !important;
 
 }
 
@@ -157,7 +159,7 @@
 
     .todo-list,
     .todoActionWrapper {
-        max-width: 95%;
+        max-width: 98%;
         flex-direction: column;
         align-items: center;
     }

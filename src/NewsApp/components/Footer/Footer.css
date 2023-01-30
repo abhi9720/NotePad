@@ -1,14 +1,13 @@
 .footer {
   width: 100%;
   color: white;
-  position: fixed;
-  bottom: 0;
+  background-color: #172b4d !important;
 }
 
 
 
 a>svg {
-  color: white !important;
+  color: #fff !important;
   font-size: large;
   margin-left: 20px;
 }

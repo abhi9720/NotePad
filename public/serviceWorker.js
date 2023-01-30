@@ -10,7 +10,7 @@ const urlsToCache = [
     "Icon-todo.png",
     "/Icon-notepad.png",
     "/static/js/main.b9d1d52e.js", //<--- New Bundle Added
-    "/static/css/main.e797ac33.css", //<--- New Bundle Added
+    "/static/css/main.10631d2a.css", //<--- New Bundle Added
 ];
 
 const self = this;
