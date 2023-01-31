@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography } from '@mui/material'
+import { Avatar, Typography } from '@mui/material'
 import './App.css'
 import { Link, NavLink } from 'react-router-dom'
 import Navbar from './Navbar/Navbar'
@@ -32,7 +32,7 @@ const Home = () => {
                     Pick Your Rapidly Used Apps at
                     <br />
                     <span className='highlight'>
-                        <b>one spot</b>
+                        <b>One Spot</b>
                     </span>
 
                 </Typography>
@@ -51,15 +51,23 @@ const Home = () => {
             </div>
 
             <div className='connect_withme'>
-                <Link className='sociallink' href="https://github.com/abhi9720" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/abhi9720" target="_blank" rel="noopener noreferrer">
                     <GitHubIcon />
                 </Link>
-                <Link className='sociallink' href="https://www.linkedin.com/in/abhi9720" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.linkedin.com/in/abhi9720" target="_blank" rel="noopener noreferrer">
                     <LinkedInIcon />
                 </Link>
-                <Link className='sociallink' href="https://www.instagram.com/abhi9720_" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.instagram.com/abhi9720_" target="_blank" rel="noopener noreferrer">
                     <InstagramIcon />
                 </Link>
+
+                <Link className="avatar" href="https://abhi-9720.github.io" target="_blank" rel="noopener noreferrer">
+                    <Avatar alt="abhi-9720.github.io" src="../abhi9720.png"
+                        style={{ width: 34, height: 34 }}
+
+                    />
+                </Link>
+
 
             </div>
         </div>

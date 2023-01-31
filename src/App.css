@@ -8,10 +8,12 @@
   color: rgb(36 62 99);
   text-align: center;
   margin-bottom: 30px !important;
+  font-weight: 500 !important;
 }
 
 .highlight {
-  color: rgb(100 21 255);
+  color: rgb(85, 105, 255);
+
 }
 
 
@@ -41,9 +43,11 @@
   height: 200px;
   border-radius: 10px;
   border: 3px rgb(179, 212, 254);
+
   border-style: dashed;
   position: relative;
   background-color: transparent;
+
 }
 
 
@@ -73,6 +77,16 @@ a {
 
 }
 
+.cardtext h5 {
+
+  font-weight: 700;
+  color: rgb(36 62 99);
+
+  line-height: 1.235;
+  display: block;
+
+}
+
 
 .connect_withme {
   width: 100%;
@@ -82,7 +96,10 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 40px;
 }
+
+
 
 @media(max-width:1000px) {
   .Cardlist {
@@ -108,6 +125,12 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 700;
+
+
+    line-height: 1.235;
+    display: block;
+    color: rgb(34, 51, 84);
   }
 
 

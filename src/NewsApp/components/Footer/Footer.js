@@ -24,13 +24,13 @@ export default function Footer() {
     <footer className={`${classes.root} footer`}>
       <Grid container spacing={2}>
         <Grid item xs={12} spacing={6}>
-          <Link className='sociallink' href="https://github.com/abhi9720" target="_blank" rel="noopener noreferrer">
+          <Link href="https://github.com/abhi9720" target="_blank" rel="noopener noreferrer">
             <GitHubIcon />
           </Link>
-          <Link className='sociallink' href="https://www.linkedin.com/in/abhi9720" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.linkedin.com/in/abhi9720" target="_blank" rel="noopener noreferrer">
             <LinkedInIcon />
           </Link>
-          <Link className='sociallink' href="https://www.instagram.com/abhi9720_" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.instagram.com/abhi9720_" target="_blank" rel="noopener noreferrer">
             <InstagramIcon />
           </Link>
         </Grid>
