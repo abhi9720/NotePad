@@ -9,7 +9,7 @@ const urlsToCache = [
     "/NewsAppicon.png",
     "Icon-todo.png",
     "/Icon-notepad.png",
-    "/static/js/main.b9d1d52e.js", //<--- New Bundle Added
+    "/static/js/main.e9972811.js", //<--- New Bundle Added
     "/static/css/main.10631d2a.css", //<--- New Bundle Added
 ];
 

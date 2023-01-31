@@ -13,7 +13,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import SearchIcon from '@mui/icons-material/Search';
 const NewAPP = () => {
-
+    const apicode = process.env.REACT_APP_API_CODE;
     const [category, setCategory] = useState("Politics");
     const [newsArray, setnewsArray] = useState([]);
     const [newsResults, setnewsResults] = useState();
@@ -39,7 +39,7 @@ const NewAPP = () => {
             },
             headers: {
                 'X-BingApis-SDK': 'true',
-                'X-RapidAPI-Key': '41599ae506msh68285b0f476e7aep1fe9d9jsn13b33e53059e',
+                'X-RapidAPI-Key': apicode,
                 'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
             }
         };
@@ -77,7 +77,7 @@ const NewAPP = () => {
             },
             headers: {
                 'X-BingApis-SDK': 'true',
-                'X-RapidAPI-Key': '41599ae506msh68285b0f476e7aep1fe9d9jsn13b33e53059e',
+                'X-RapidAPI-Key': apicode,
                 'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
             }
         };
