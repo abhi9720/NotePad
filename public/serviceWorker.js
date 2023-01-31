@@ -3,8 +3,6 @@ const urlsToCache = [
     '/',
     'index.html',
     "/manifest.json",
-    "/logo192.png",
-    "/logo512.png",
     "/navbarlogo.png",
     "/NewsAppicon.png",
     "Icon-todo.png",

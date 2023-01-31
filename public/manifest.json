@@ -1,14 +1,21 @@
 {
   "name": "Rapid Apps",
   "short_name": "Rapid Apps",
+  "description": "A progressive web app that combines a notepad, news feed, and to-do list in one easy-to-use package. Features include copy-paste and print functions, customizable news categories, and a simple to-do list to keep track of daily tasks.",
   "theme_color": "#fff",
   "background_color": "#fff",
   "display": "standalone",
   "orientation": "portrait",
   "prefer_related_applications": false,
   "scope": "/",
+  "id": "rapidapp",
   "start_url": "/",
   "icons": [
+    {
+      "src": "./icons/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
     {
       "src": "./icons/maskable_icon_x384.png",
       "sizes": "384x384",
