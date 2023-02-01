@@ -1,12 +1,12 @@
 import React from 'react'
 import { Avatar, Typography } from '@mui/material'
 import './App.css'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Navbar from './Navbar/Navbar'
-
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
 const Card = ({ imgurl, text }) => {
     return (
         <div className='card'>
@@ -14,7 +14,7 @@ const Card = ({ imgurl, text }) => {
                 <img src={imgurl} alt="" width="100" height="100" />
             </div>
             <div className='cardtext'>
-                <Typography variant="h5" align='center'>
+                <Typography align='center'>
                     {text}
                 </Typography>
             </div>
@@ -26,6 +26,7 @@ const Home = () => {
     return (
 
         <div className='Homepage'>
+
             <Navbar />
             <div className='Cardlist'>
                 <Typography variant='h2' className='homepageheading'>
@@ -51,22 +52,20 @@ const Home = () => {
             </div>
 
             <div className='connect_withme'>
-                <Link href="https://github.com/abhi9720" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/abhi9720" target="_blank" rel="noopener noreferrer">
                     <GitHubIcon />
-                </Link>
-                <Link href="https://www.linkedin.com/in/abhi9720" target="_blank" rel="noopener noreferrer">
+                </a>
+                <a href="https://www.linkedin.com/in/abhi9720" target="_blank" rel="noopener noreferrer">
                     <LinkedInIcon />
-                </Link>
-                <Link href="https://www.instagram.com/abhi9720_" target="_blank" rel="noopener noreferrer">
+                </a>
+                <a href="https://www.instagram.com/abhi9720_" target="_blank" rel="noopener noreferrer">
                     <InstagramIcon />
-                </Link>
+                </a>
 
-                <Link className="avatar" href="https://abhi-9720.github.io" target="_blank" rel="noopener noreferrer">
+                <a className="avatar" href="https://abhi-9720.github.io" target="_blank" rel="noopener noreferrer">
                     <Avatar alt="abhi-9720.github.io" src="../abhi9720.png"
-                        style={{ width: 34, height: 34 }}
-
-                    />
-                </Link>
+                        style={{ width: 34, height: 34 }} />
+                </a>
 
 
             </div>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'repidApps';
+const CACHE_NAME = 'rapidApps';
 const urlsToCache = [
     '/',
     'index.html',
@@ -7,8 +7,8 @@ const urlsToCache = [
     "/NewsAppicon.png",
     "Icon-todo.png",
     "/Icon-notepad.png",
-    "/static/js/main.f1f6c802.js", //<--- New Bundle Added
-    "/static/css/main.ff5b2915.css", //<--- New Bundle Added
+    "/static/js/main.8825da77.js", //<--- New Bundle Added
+    "/static/css/main.874b6bf9.css", //<--- New Bundle Added
 ];
 
 const self = this;

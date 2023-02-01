@@ -14,12 +14,13 @@
     align-items: center;
     justify-content: center;
     backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.85);
+
     box-shadow: rgb(0 0 0 / 5%) 0px 1px 0px 0px;
     user-select: none !important;
+    background-color: white;
 }
 
 .logoapp {
-    width: 200px;
+    width: 300px !important;
     user-select: none;
 }

@@ -151,7 +151,7 @@ const NewAPP = () => {
                     <div className="searchBarWrapper">
                         <form onSubmit={handleSubmit}>
                             <input
-                                autoFocus
+
                                 type="text"
                                 placeholder="Search..."
                                 value={searchTerm}
