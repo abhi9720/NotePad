@@ -1,10 +1,20 @@
 #root {
   width: 100vw;
+
 }
 
+.homeheadingwrapper {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("../public/removebg.gif") no-repeat left center fixed;
+
+}
 
 .homepageheading {
-  color: rgb(34, 51, 84);
+  color: #101c2f;
   text-align: center;
   margin-bottom: 30px !important;
   font-weight: 500 !important;
@@ -12,7 +22,7 @@
 }
 
 .highlight {
-  color: #1473e6;
+  color: #06f;
 }
 
 
@@ -23,9 +33,6 @@
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-
-
-  background: url("../public/bghome.gif") no-repeat left center fixed;
 }
 
 
@@ -44,28 +51,59 @@
 .card {
   width: 300px;
   height: 200px;
-  border-radius: 10px;
-  box-shadow: rgb(159 162 191 / 18%) 0px 9px 16px, rgb(159 162 191 / 32%) 0px 2px 2px;
+  border-radius: 20px;
+  box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
   position: relative;
-  background-color: #fff;
-
-
-
-
-
-
+  padding: 10px;
+  background-color: white;
+  user-select: none !important;
 }
 
 
 
 .cardmedia {
-  width: 160px;
-  height: 160px;
+
+  height: 130px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
+
+a[href="/todo"] .cardmedia {
+  background-color: #00a0c81f;
+  border-radius: 20px;
+}
+
+a[href="/news"] .cardmedia {
+  background-color: #fd846925;
+  border-radius: 20px;
+}
+
+a[href="/notepad"] .cardmedia {
+  background-color: #5fd6d422;
+  border-radius: 20px;
+
+}
+
+a[href="/notepad"] .cardmedia img {
+  transform: scale(0.7);
+}
+
+a[href="/notepad"] .cardmedia {
+
+  background-image: url('../public/notepadbg.svg');
+  background-size: 90px 90px;
+  background-position: 52% 54%;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
 
 a {
   text-decoration: none !important;
@@ -78,20 +116,28 @@ a {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   flex-direction: row;
+  height: inherit;
+}
+
+.cardtext {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
 .cardtext p {
-
-  font-weight: 700;
-  color: rgb(34, 51, 84);
-
+  text-align: center;
+  width: 100%;
+  color: #101c2f;
   line-height: 1.235;
   display: block;
   font-weight: 700 !important;
   font-size: 18px !important;
+  background-color: white;
 
 }
 
