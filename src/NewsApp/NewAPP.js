@@ -15,9 +15,12 @@ import SearchIcon from '@mui/icons-material/Search';
 const NewAPP = () => {
     const apicode = process.env.REACT_APP_API_CODE;
     const [category, setCategory] = useState("Politics");
-    const [newsArray, setnewsArray] = useState([]);
-    const [newsResults, setnewsResults] = useState();
-    const [loadmore, setloadmore] = useState(20);
+    const [newsArray, setnewsArray] = useState(() =>
+        localStorage.getItem("News") ? JSON.parse(localStorage.getItem("News")) : []
+    );
+
+    // const [newsResults, setnewsResults] = useState();
+    // const [loadmore, setloadmore] = useState(20);
     const [loading, setloading] = useState(false);
     const [error, setError] = useState(null)
 
@@ -29,78 +32,77 @@ const NewAPP = () => {
         event.preventDefault();
         const options = {
             method: 'GET',
-            url: 'https://bing-news-search1.p.rapidapi.com/news/search',
+            url: 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI',
             params: {
                 q: searchTerm,
-                freshness: 'Day',
-                originalImg: 'true',
-                textFormat: 'Raw',
-                safeSearch: 'Off'
+                pageNumber: '1',
+                pageSize: '50',
+                autoCorrect: 'true',
+                fromPublishedDate: 'null',
+                toPublishedDate: 'null'
             },
             headers: {
-                'X-BingApis-SDK': 'true',
                 'X-RapidAPI-Key': apicode,
-                'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+                'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
             }
         };
 
-
-        try {
-            setloading(true);
-
-            const news = await axios.request(options);
-
-            setnewsArray(news.data.value);
-            setnewsResults(news.data.value.length);
-
-            setError(null)
-        } catch (error) {
-            console.log(error);
-            setError(error)
-        }
-        finally {
-            setloading(false);
-        }
+        setloading(true);
+        await axios.request(options)
+            .then(news => {
+                setnewsArray(news.data.value);
+                localStorage.setItem("News", JSON.stringify(news.data.value))
+                setError(null)
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.code)
+                setnewsArray(() =>
+                    localStorage.getItem("News") ? JSON.parse(localStorage.getItem("News")) : [])
+            })
+            .finally(() => {
+                setloading(false);
+            })
     };
 
 
     const newsApi = async () => {
         const options = {
             method: 'GET',
-            url: 'https://bing-news-search1.p.rapidapi.com/news/search',
+            url: 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI',
             params: {
-                originalImg: 'true',
-                category: `${category}`,
-                cc: 'IN',
-                safeSearch: 'Off',
-                textFormat: 'Raw'
+                q: category,
+                pageNumber: '1',
+                pageSize: '50',
+                autoCorrect: 'true',
+                fromPublishedDate: 'null',
+                toPublishedDate: 'null'
             },
             headers: {
-                'X-BingApis-SDK': 'true',
                 'X-RapidAPI-Key': apicode,
-                'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+                'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
             }
         };
-        try {
-            setloading(true);
-
-            const news = await axios.request(options);
 
 
-            // const news = await axios.get(
-            //     `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}&category=${category}&pageSize=${loadmore}`
-            // );
-            setnewsArray(news.data.value);
-            setnewsResults(news.data.value.length);
+        setloading(true);
+        await axios.request(options)
+            .then(news => {
+                setnewsArray(news.data.value);
+                setError(null);
+                localStorage.setItem("News", JSON.stringify(news.data.value));
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.code);
+                setnewsArray(() =>
+                    localStorage.getItem("News") ? JSON.parse(localStorage.getItem("News")) : [])
+            })
+            .finally(() => {
+                setloading(false);
+            })
 
-            setError(null)
-        } catch (error) {
-            console.log(error);
-            setError(error)
-        }
-        finally {
-            setloading(false);
-        }
+
     };
 
     // console.log(newsArray);
@@ -111,81 +113,98 @@ const NewAPP = () => {
     }, [category]);
 
     return (
-        <div className="App">
-            <NavInshorts setCategory={setCategory} />
-            <div className="newsAppWrapper">
-                <div className="breadcum">
-                    <Breadcrumbs aria-label="breadcrumb">
-                        <NavLink
-                            underline="hover"
-                            sx={{ display: 'flex', alignItems: 'center' }}
-                            color="inherit"
-                            to="/"
-                        >
+        <>
+            <div className="App">
+                <NavInshorts setCategory={setCategory} />
+                <div className="newsAppWrapper">
+                    <div className="breadcum">
+                        <Breadcrumbs aria-label="breadcrumb">
+                            <NavLink
+                                underline="hover"
+                                sx={{ display: 'flex', alignItems: 'center' }}
+                                color="inherit"
+                                to="/"
+                            >
 
-                            <Chip icon={<HomeIcon />} label="Home" />
-
-
-
-                        </NavLink>
-
-                        <NavLink
-                            underline="hover"
-                            sx={{ display: 'flex', alignItems: 'center' }}
-                            color="inherit"
-                            to="/news"
-                        >
-
-                            <Chip icon={<NewspaperIcon />} label="News" />
+                                <Chip icon={<HomeIcon />} label="Home" />
 
 
-                        </NavLink>
-                        <Typography>
 
-                            {searchTerm.length !== 0 ? searchTerm : category}
-                        </Typography>
-                    </Breadcrumbs>
-                </div>
+                            </NavLink>
 
-                <div className="searchBar">
-                    <div className="searchBarWrapper">
-                        <form onSubmit={handleSubmit}>
-                            <input
+                            <NavLink
+                                underline="hover"
+                                sx={{ display: 'flex', alignItems: 'center' }}
+                                color="inherit"
+                                to="/news"
+                            >
 
-                                type="text"
-                                placeholder="Search..."
-                                value={searchTerm}
-                                onChange={(event) => setSearchTerm(event.target.value)}
-                            />
+                                <Chip icon={<NewspaperIcon />} label="News" />
 
-                            <IconButton type="submit" aria-label="search">
-                                <SearchIcon />
 
-                            </IconButton>
-                        </form>
+                            </NavLink>
+                            <Typography>
+
+                                {searchTerm.length !== 0 ? searchTerm : category}
+                            </Typography>
+                        </Breadcrumbs>
                     </div>
-                </div>
-                {
-                    loading ?
+
+                    <div className="searchBar">
+                        <div className="searchBarWrapper">
+                            <form onSubmit={handleSubmit}>
+                                <input
+
+                                    type="text"
+                                    placeholder="Search..."
+                                    value={searchTerm}
+                                    onChange={(event) => setSearchTerm(event.target.value)}
+                                />
+
+                                <IconButton type="submit" aria-label="search">
+                                    <SearchIcon />
+
+                                </IconButton>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    {
+                        error &&
+
+                        <div className='errormsg'>
+
+                            <p >
+                                ⚠️
+                                Showing Offfline Saved News Check Your Internet Connection
+                            </p>
+
+                        </div>
+                    }
+                    {
+                        loading &&
                         <div className='loadercss'>
                             <CircularProgress />
                             <p>Loading...</p>
                         </div>
+                    }
+                    {
+                        !loading &&
+                        <NewsContent category={category} newsArray={newsArray} />
+                    }
 
-                        :
-                        <>
 
-                            <NewsContent category={category} setloadmore={setloadmore} loadmore={loadmore} newsArray={newsArray} newsResults={newsResults} />
-                        </>
-                }
-                {
-                    error && <>
-                        <p>{error}</p>
-                    </>
-                }
+
+
+                </div>
+
+                < Footer />
             </div>
-            <Footer />
-        </div>
+
+
+        </>
     )
 }
 

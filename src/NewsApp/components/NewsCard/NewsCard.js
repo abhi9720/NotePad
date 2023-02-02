@@ -19,57 +19,30 @@ const NewsCard = ({ newsItem }) => {
     <div className="newsCard">
       <a href={newsItem.url} target="__blank" className="source">
 
-        <div className="newcardimg" style={newsItem.image?.contentUrl ? {} : { maxHeight: '200px' }}>
-          {newsItem.image &&
-            <>
-              {
-
-                newsItem.image.contentUrl
-                  ?
-
-
-                  <img
-                    src={
-                      newsItem.image.contentUrl
-                    }
-                    className="orginalnewsImage"
-                    alt={newsItem.name}
-                  />
-
-                  :
-                  <img
-                    src={
-                      newsItem.image.thumbnail.contentUrl
-                    }
-                    width={newsItem.image.thumbnail.width}
-                    height={newsItem.image.thumbnail.height}
-                    alt={newsItem.name}
-                    className="newsImage"
-
-                  />
-
-              }
-            </>
-
-
-
-          }
+        <div className="newcardimg" style={newsItem.image?.url ? {} : { maxHeight: '200px' }}>
+          <img
+            src={
+              newsItem.image.url
+            }
+            className="orginalnewsImage"
+            alt={newsItem.title}
+          />
 
         </div>
         <div className="newsText">
           <div>
-            {<Typography variant="h5" className="title">{newsItem.name}</Typography>}
+            {<Typography variant="h5" className="title">{newsItem.title}</Typography>}
 
             <br />
             <Typography className="author" variant="caption" display="block" gutterBottom>
 
               <a href={newsItem.url} target="__blank">
-                <b>short </b>
+                <b>Source : </b>
               </a>{" "}
 
               <span className="muted">
                 {" "}
-                by {newsItem?.provider[0].name ? newsItem?.provider[0].name : "unknown"} / {" "}
+                {newsItem?.provider?.name ? newsItem?.provider?.name : "unknown"} / {" "}
                 {time
                   ? `${hour - 12}:${date[4].substring(3, 5)} pm`
                   : `${hour}:${date[4].substring(3, 5)} am`}{" "}
@@ -82,7 +55,7 @@ const NewsCard = ({ newsItem }) => {
               <span className="readmore">
                 <span >read more at{" "}</span>
 
-                <b>{newsItem?.provider[0].name}</b>
+                <b>{newsItem?.provider.name}</b>
 
               </span>
             </div>

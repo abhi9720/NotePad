@@ -12,10 +12,7 @@
   column-break-inside: avoid;
 }
 
-.newcardimg img {
-  border-radius: 6px;
 
-}
 
 .newcardimg {
   background-color: #000000;
@@ -29,6 +26,8 @@
 .orginalnewsImage {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
+
 }
 
 .newsImage {

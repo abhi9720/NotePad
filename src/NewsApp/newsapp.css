@@ -23,6 +23,8 @@ body {
 .newsAppWrapper {
     padding-top: 70px;
     position: relative;
+    min-height: calc(100vh - 60px);
+
 }
 
 .searchBar {
@@ -79,4 +81,22 @@ body {
     .searchBarWrapper {
         width: 100vw;
     }
+}
+
+.errormsg {
+
+    color: #5046e4;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errormsg p {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #4740ac08;
+    font-size: large;
 }
