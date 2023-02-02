@@ -28,6 +28,15 @@ const NewAPP = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
 
+
+    const [showMessage, setShowMessage] = useState(false);
+    const displaymsg = () => {
+        setShowMessage(true);
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 5000);
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const options = {
@@ -112,6 +121,25 @@ const NewAPP = () => {
         // eslint-disable-next-line
     }, [category]);
 
+
+    const handleShare = async (title, text, link) => {
+        try {
+            if (navigator.share) {
+                await navigator.share({
+                    title: title,
+                    text: text,
+                    url: link,
+                });
+                console.log('Link was shared successfully');
+            } else {
+                console.log('The Web Share API is not supported by this browser.');
+            }
+        } catch (error) {
+            console.log('Error occurred while sharing the link', error);
+        }
+    };
+
+
     return (
         <>
             <div className="App">
@@ -192,7 +220,7 @@ const NewAPP = () => {
                     }
                     {
                         !loading &&
-                        <NewsContent category={category} newsArray={newsArray} />
+                        <NewsContent handleShare={handleShare} displaymsg={displaymsg} category={category} newsArray={newsArray} />
                     }
 
 
@@ -200,6 +228,17 @@ const NewAPP = () => {
 
                 </div>
 
+
+
+                {showMessage && (
+                    <div className="displaynotification" style={{ display: 'block' }}>
+                        <p>
+                            <span>
+                                Link Copied
+                            </span>
+                        </p>
+                    </div>
+                )}
                 < Footer />
             </div>
 

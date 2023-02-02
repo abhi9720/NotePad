@@ -45,7 +45,7 @@
   color: #44444d;
 }
 
-.newsText div {
+.newsText>div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,17 +76,22 @@
 }
 
 .readmore {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 400;
-  padding-top: 10px;
-
-
+  color: #1c55ff;
+  text-align: center;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.readmore span {
-  color: #1c55ff;
-  width: 100%;
-  text-align: center;
+.readmore b {
+  color: #202124;
+}
+
+.newsactionbtn {
+  float: right;
 }
 
 .source {
@@ -113,6 +118,11 @@
   font-size: 14px;
   line-height: 22px;
   color: #202124;
+}
+
+.newsText div>h5 {
+  width: 100%;
+
 }
 
 @media (max-width: 800px) {

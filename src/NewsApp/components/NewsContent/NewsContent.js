@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./NewsContent.css"
 
 
-const NewsContent = ({ newsArray }) => {
+const NewsContent = ({ handleShare, newsArray, displaymsg }) => {
   return (
 
 
@@ -14,7 +14,7 @@ const NewsContent = ({ newsArray }) => {
 
       {
         newsArray.map((newsItem) => (
-          <NewsCard newsItem={newsItem} key={newsItem.name} />
+          <NewsCard handleShare={handleShare} displaymsg={displaymsg} newsItem={newsItem} key={newsItem.name} />
         ))
       }
 

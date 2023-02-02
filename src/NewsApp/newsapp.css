@@ -100,3 +100,33 @@ body {
     background-color: #4740ac08;
     font-size: large;
 }
+
+.displaynotification {
+    position: fixed;
+
+    width: 100vw;
+
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+
+}
+
+.displaynotification p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ;
+}
+
+.displaynotification span {
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: rgb(243, 246, 249);
+    color: rgb(62, 80, 96);
+    font-size: 0.875rem;
+
+}
