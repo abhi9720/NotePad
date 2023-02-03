@@ -23,7 +23,7 @@ const App = () => {
         </Route>
         <Route path="/notepad" element={<Notepad />}>
         </Route>
-        <Route path="/todo" element={<Todo />}>
+        <Route path="/task-tracker" element={<Todo />}>
         </Route>
         <Route path="/news" element={<NewAPP />}>
         </Route>

@@ -9,7 +9,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url("../public/removebg.gif") no-repeat left center fixed;
+  background: url("../public/home.gif") no-repeat left center fixed;
+  background-size: contain;
 
 }
 
@@ -19,6 +20,7 @@
   margin-bottom: 30px !important;
   font-weight: 500 !important;
   user-select: none;
+  font-family: 'Inter', sans-serif !important;
 }
 
 .highlight {
@@ -33,6 +35,7 @@
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #fdfefe !important;
 }
 
 
@@ -54,7 +57,7 @@
   border-radius: 20px;
   box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
   position: relative;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   background-color: white;
   user-select: none !important;
 }
@@ -63,7 +66,7 @@
 
 .cardmedia {
 
-  height: 130px;
+  height: 140px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -71,7 +74,7 @@
 
 }
 
-a[href="/todo"] .cardmedia {
+a[href="/task-tracker"] .cardmedia {
   background-color: #00a0c81f;
   border-radius: 20px;
 }
@@ -122,11 +125,11 @@ a {
 }
 
 .cardtext {
-  height: 70px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  margin-top: 3px;
 }
 
 .cardtext p {
@@ -163,28 +166,6 @@ a {
     padding: 10px 0px 84px 0;
     overflow-y: scroll;
 
-  }
-
-  .card {
-    width: 300px;
-    height: 170px;
-  }
-
-  .cardmedia {
-    height: 120px;
-  }
-
-  .cardtext h5 {
-    height: 50px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 700;
-
-
-    line-height: 1.235;
-    display: block;
-    color: rgb(34, 51, 84);
   }
 
 

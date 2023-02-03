@@ -105,10 +105,10 @@ export default function Todo() {
                         underline="hover"
                         sx={{ display: 'flex', alignItems: 'center' }}
                         color="inherit"
-                        to="/todo"
+                        to="/task-tracker"
                     >
 
-                        <Chip icon={<FormatListBulletedIcon />} label="TO DO" />
+                        <Chip icon={<FormatListBulletedIcon />} label="Task Tracker" />
 
 
                     </NavLink>

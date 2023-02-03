@@ -41,8 +41,8 @@ const Home = () => {
                         </Typography>
                     </div>
                     <div className='cardwrapper'>
-                        <NavLink to="/todo">
-                            <Card imgurl={'../../../Icon-todo.png'} text="ToDo"></Card>
+                        <NavLink to="/task-tracker">
+                            <Card imgurl={'../../../Icon-todo.png'} text="Task Tracker"></Card>
                         </NavLink >
                         <NavLink to="/notepad">
                             <Card imgurl={'../../../Icon-notepad.png'} text="Note Pad"></Card>
