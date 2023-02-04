@@ -178,3 +178,7 @@
         justify-content: center;
     }
 }
+
+.file-types {
+    display: none;
+}

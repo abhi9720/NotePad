@@ -18,7 +18,7 @@ const FileCompression = () => {
     const [compressSize, setCompressSize] = useState(1);
     const [keepAspectRatio, setkeepAspectRatio] = useState(false);
     const [ratio, setRatio] = useState(1);
-    const fileTypes = ["JPEG", "PNG", "GIF"];
+    const fileTypes = ["JPEG", "PNG", "GIF", "jpg", "svg", "webp", "bmp", "tiff"];
     const [ImageProperty, setImageProperty] = useState({
         width: null,
         height: null,
@@ -301,6 +301,12 @@ const FileCompression = () => {
                                         <option value="jpeg">JPEG</option>
                                         <option value="png">PNG</option>
                                         <option value="webp">WEBP</option>
+                                        <option value="jpg">JPG</option>
+                                        <option value="svg">SVG</option>
+                                        <option value="gif">GIF</option>
+
+
+
                                     </select>
                                 </div>
 
