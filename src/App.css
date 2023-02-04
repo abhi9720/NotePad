@@ -1,17 +1,34 @@
-#root {
-  width: 100vw;
+.Homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: #fdfefe; */
 
+  height: 100vh;
 }
 
+
+
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  height: 100%;
+  width: 100vw;
+}
+
+
 .homeheadingwrapper {
-  height: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: url("../public/home.gif") no-repeat left center fixed;
   background-size: contain;
-
+  width: 50%;
+  height: 100%;
 
 }
 
@@ -29,28 +46,19 @@
 }
 
 
-
-.Homepage {
+.cardwrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #fdfefe !important;
-}
+  gap: 10px;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+  padding: 40px 0;
 
-
-
-.Cardlist {
-  height: calc(100vh - 19.431vh);
-  margin-top: 10.46vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-
+  width: 50%;
 
 }
+
 
 .card {
   width: 300px;
@@ -119,16 +127,7 @@ a {
 
 }
 
-.cardwrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap-reverse;
-  flex-direction: row;
-  padding: 40px 0;
 
-}
 
 .cardtext {
   height: 40px;
@@ -165,39 +164,24 @@ a {
 
 
 @media(max-width:1000px) {
-  .Cardlist {
+  .homepageWrapper {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px 0px 84px 0;
-    overflow-y: scroll;
+
 
   }
-}
 
-
-.scroller {
-  overflow: hidden;
-  height: 30px;
-}
-
-.scroller-text {
-  font-size: 2rem !important;
-
-  animation: scroll-vertical 1s linear infinite;
-  margin: 0;
-}
-
-@keyframes scroll-vertical {
-  0% {
-    transform: translateY(0);
+  .Homepage {
+    height: fit-content;
   }
 
-  50% {
-    transform: translateY(-50%);
+  .contentWrapper {
+    flex-direction: column;
   }
 
-  100% {
-    transform: translateY(-100%);
+  .homeheadingwrapper {
+    width: 100vw;
   }
 }

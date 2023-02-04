@@ -18,18 +18,18 @@ const FileCompression = () => {
     const [compressSize, setCompressSize] = useState(1);
     const [keepAspectRatio, setkeepAspectRatio] = useState(false);
     const [ratio, setRatio] = useState(1);
+    const [quality, setQuality] = useState(1)
     const fileTypes = ["JPEG", "PNG", "GIF", "jpg", "svg", "webp", "bmp", "tiff"];
     const [ImageProperty, setImageProperty] = useState({
         width: null,
         height: null,
-        convertType: "JPEG"
     });
 
 
     const handleFileChange = (file) => {
 
         setFile(file);
-        console.log(file)
+
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
@@ -41,7 +41,8 @@ const FileCompression = () => {
                     ...prev,
                     width: image.width,
                     height: image.height,
-                    compressSize: Number(file.size / 1024).toFixed(4)
+                    compressSize: Number(file.size / 1024).toFixed(4),
+                    convertType: file.type.split('/')[1]
                 }));
                 setRatio(image.height / image.width)
                 setCompressSize(Number(file.size / 1024).toFixed(4))
@@ -96,8 +97,11 @@ const FileCompression = () => {
             useWebWorker: true,
             outputPixelFormat: ImageProperty.convertType,
             maxIteration: 50,
+            initialQuality: quality,
+            alwaysKeepResolution: true
         };
 
+        console.log(imgoptions);
 
         imageCompression(file, imgoptions)
             .then((compressedImage) => {
@@ -212,6 +216,15 @@ const FileCompression = () => {
 
             <div className="container">
 
+                <div className="heroTitle">
+                    <Typography variant="h2">
+                        ImgResizer
+                    </Typography>
+                    <Typography variant="h7">
+
+                        Easily resize images online for free.
+                    </Typography>
+                </div>
 
 
                 <div className="fileUploaderWrapper">
@@ -223,6 +236,22 @@ const FileCompression = () => {
                     />
                     <Typography className="filenamedisplay" variant="body2">{file ? `File name: ${file.name}` : "No File Uploaded Yet"}</Typography>
                 </div>
+
+                {!file && <div className="InstructionDisplay">
+                    <Typography variant="h4">How to Resize an Image?</Typography>
+                    <ul className="Instruction">
+                        <li>
+                            Click on the <b>"Select Image"</b> button to select an image.
+                        </li>
+                        <li>
+                            Enter a new <b>target size</b> for your image
+                        </li>
+                        <li>
+                            Click the <b>"Resize Image"</b> button to resize the image.
+                        </li>
+                    </ul>
+                </div>}
+
                 {
                     file &&
                     (<div className="ActionPannelWrapper">
@@ -276,10 +305,23 @@ const FileCompression = () => {
 
                             <div className="compressActionPannel">
 
+                                <div className="InputElement">
 
+                                    <label htmlFor="targetCompressSize">Quality  </label>
+                                    <input
+                                        step="0.01"
+                                        min="0"
+                                        max="1"
+                                        type="number"
+                                        name="targetQuality"
+                                        id="targetQuality"
+                                        value={quality}
+                                        onChange={e => setQuality(Number(e.target.value))}
+                                    />
+                                </div>
 
                                 <div className="InputElement targetCompresswrapper">
-                                    <label htmlFor="targetCompressSize">Max Compress Size(KB)  </label>
+                                    <label htmlFor="targetCompressSize">Target Size (KB)  </label>
                                     <input
                                         type="number"
                                         name="targetCompressSize"

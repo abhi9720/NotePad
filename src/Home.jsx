@@ -29,7 +29,7 @@ const Home = () => {
             <div className='Homepage'>
 
 
-                <div className='Cardlist'>
+                <div className='contentWrapper'>
                     <div className="homeheadingwrapper">
                         <Typography variant='h2' className='homepageheading'>
                             Pick Your Rapidly Used Apps at

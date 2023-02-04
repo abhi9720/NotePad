@@ -9,6 +9,43 @@
     box-sizing: border-box;
 }
 
+.InstructionDisplay {
+    padding: 30px;
+    margin-top: 20px;
+    /* width: var(--wrapperwidth); */
+    border: 1px solid #E0E3E7;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.Instruction,
+.InstructionDisplay {
+    display: flex;
+    flex-direction: column;
+
+
+    gap: 1.75rem;
+
+}
+
+
+.heroTitle {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heroTitle h2 {
+    color: #0072e5;
+    font-weight: 800;
+}
+
 .breadcum {
     background-color: #fff;
     z-index: 100;
@@ -17,7 +54,7 @@
 .container {
     width: 100vw;
     min-height: 100vh;
-    background-color: #f1f5f9;
+    background-color: #f3f6f9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,9 +68,10 @@
     align-items: center;
     flex-direction: column;
     border-radius: var(--wrapperRadius);
-    width: var(--wrapperwidth);
+    /* width: var(--wrapperwidth); */
     padding: 50px 20px;
     background-color: #fff;
+    border: 1px solid #E0E3E7;
 }
 
 .filenamedisplay {
@@ -50,6 +88,7 @@
     background-color: white;
     margin: 20px 0;
     width: var(--wrapperwidth);
+    border: 1px solid #E0E3E7;
 
 }
 
@@ -99,8 +138,8 @@
     width: var(--wrapperwidth) !important;
     border-radius: var(--wrapperRadius);
     background-color: white;
-    padding: 40px 20px;
     width: var(--wrapperwidth);
+    border: 1px solid #E0E3E7;
 }
 
 .orginalImageWrapper,
@@ -109,12 +148,15 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    height: 500px;
+    max-height: 500px;
     width: 100%;
+
+    padding: 30px 10px;
+
 }
 
-.orginalImageWrapper {
-    border-right: 2px solid gray;
+.compressedImageWrapper {
+    border-left: 1px solid #E0E3E7;
 }
 
 .orginalImageWrapper p,
@@ -128,6 +170,7 @@
     max-width: var(--imageWidth);
     max-height: 400px;
     object-fit: contain;
+
 
 }
 
