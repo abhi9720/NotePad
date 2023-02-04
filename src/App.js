@@ -10,6 +10,7 @@ import Notepad from './Notepad/Notepad';
 import Todo from './ToDO/Todo';
 import Home from './Home';
 import NewAPP from './NewsApp/NewAPP';
+import FileCompression from './FileCompressionApp/FileCompression';
 
 
 
@@ -27,6 +28,11 @@ const App = () => {
         </Route>
         <Route path="/news" element={<NewAPP />}>
         </Route>
+        <Route path="/img-compress" element={<FileCompression />}>
+        </Route>
+
+
+
 
       </Routes>
     </Router>

@@ -1,0 +1,180 @@
+:root {
+    --containerPadding: 70px;
+    --wrapperwidth: 90vw;
+    --wrapperRadius: 10px;
+    --imageWidth: 44vw;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.breadcum {
+    background-color: #fff;
+    z-index: 100;
+}
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #f1f5f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--containerPadding) 0;
+}
+
+.fileUploaderWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: var(--wrapperRadius);
+    width: var(--wrapperwidth);
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.filenamedisplay {
+    text-align: center;
+    margin-top: 10px !important;
+    overflow: hidden;
+}
+
+.ActionPannelWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    border-radius: var(--wrapperRadius);
+    background-color: white;
+    margin: 20px 0;
+    width: var(--wrapperwidth);
+
+}
+
+.ActionPannel {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.InputElement {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resizeActionPannel,
+.compressActionPannel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.aspectWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CompressbtnWrapper {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: var(--wrapperRadius);
+
+}
+
+.displayImageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: var(--wrapperwidth) !important;
+    border-radius: var(--wrapperRadius);
+    background-color: white;
+    padding: 40px 20px;
+    width: var(--wrapperwidth);
+}
+
+.orginalImageWrapper,
+.compressedImageWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+    width: 100%;
+}
+
+.orginalImageWrapper {
+    border-right: 2px solid gray;
+}
+
+.orginalImageWrapper p,
+.compressedImageWrapper p {
+    text-align: center;
+    line-height: 1.4rem;
+}
+
+.orginalImage,
+.compressedImage {
+    max-width: var(--imageWidth);
+    max-height: 400px;
+    object-fit: contain;
+
+}
+
+.compressedImageShare {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.compressedImageShare button {
+    flex-direction: row;
+}
+
+
+@media(max-width:1000px) {
+    :root {
+
+        --wrapperwidth: 100vw;
+        --imageWidth: 98vw;
+        --containerPadding: 50px;
+    }
+
+    .displayImageWrapper {
+        flex-direction: column;
+    }
+
+    .orginalImageWrapper {
+        border-right: none;
+    }
+
+    .ActionPannel {
+        flex-direction: column;
+
+    }
+
+    .targetCompresswrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

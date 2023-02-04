@@ -12,6 +12,7 @@
   background: url("../public/home.gif") no-repeat left center fixed;
   background-size: contain;
 
+
 }
 
 .homepageheading {
@@ -47,7 +48,7 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  flex: 1;
+
 
 }
 
@@ -102,6 +103,10 @@ a[href="/notepad"] .cardmedia {
   background-repeat: no-repeat;
 }
 
+a[href="/img-compress"] .cardmedia {
+  background-color: #ff9f0025;
+  border-radius: 20px;
+}
 
 
 
@@ -121,7 +126,8 @@ a {
   gap: 10px;
   flex-wrap: wrap-reverse;
   flex-direction: row;
-  height: inherit;
+  padding: 40px 0;
+
 }
 
 .cardtext {
@@ -167,6 +173,31 @@ a {
     overflow-y: scroll;
 
   }
+}
 
 
+.scroller {
+  overflow: hidden;
+  height: 30px;
+}
+
+.scroller-text {
+  font-size: 2rem !important;
+
+  animation: scroll-vertical 1s linear infinite;
+  margin: 0;
+}
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
 }

@@ -39,6 +39,9 @@ const Home = () => {
                             </span>
 
                         </Typography>
+
+
+
                     </div>
                     <div className='cardwrapper'>
                         <NavLink to="/task-tracker">
@@ -49,6 +52,9 @@ const Home = () => {
                         </NavLink>
                         <NavLink to="/news">
                             <Card imgurl={'../../../NewsAppicon.png'} text="News"></Card>
+                        </NavLink>
+                        <NavLink to="/img-compress">
+                            <Card imgurl={'../../../imgresizer.png'} text="ImgResizer"></Card>
                         </NavLink>
 
                     </div>
