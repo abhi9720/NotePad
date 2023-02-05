@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import imageCompression from "browser-image-compression";
 import "./filecompression.css";
-import { Breadcrumbs, Chip, IconButton, LinearProgress, Switch, Typography } from "@mui/material";
+import { Breadcrumbs, Chip, IconButton, LinearProgress, Slider, Switch, Typography } from "@mui/material";
 import { FileUploader } from "react-drag-drop-files";
 import DownloadIcon from '@mui/icons-material/Download';
 import { NavLink } from "react-router-dom";
@@ -26,7 +26,7 @@ const FileCompression = () => {
     const [processing, setProcessing] = useState(false);
     const [keepAspectRatio, setkeepAspectRatio] = useState(true);
     const [ratio, setRatio] = useState(1);
-    const [quality, setQuality] = useState(1);
+    const [quality, setQuality] = useState(100);
     const [choice, setChoice] = useState(null);
     // resize , compress 
 
@@ -41,7 +41,7 @@ const FileCompression = () => {
     const clearData = () => {
         setFile(null);
         setTargetImage(null);
-        setQuality(1);
+        setQuality(100);
         setChoice(null)
         setImageProperty({
             width: null,
@@ -136,8 +136,8 @@ const FileCompression = () => {
             maxWidthOrHeight: Math.min(targetImageProperty.width, targetImageProperty.height),
             useWebWorker: true,
             outputPixelFormat: targetImageProperty.convertType,
-            maxIteration: 20,
-            initialQuality: quality,
+            maxIteration: 30,
+            initialQuality: quality / 100,
             alwaysKeepResolution: true
         };
 
@@ -168,7 +168,7 @@ const FileCompression = () => {
             targetImageProperty.width,
             targetImageProperty.height,
             targetImageProperty.convertType,
-            80,
+            100,
             0,
             (resfile) => {
                 setTargetImage(resfile);
@@ -308,9 +308,8 @@ const FileCompression = () => {
                     <Typography variant="h2">
                         ImgResizer
                     </Typography>
-                    <Typography variant="h7">
-
-                        Easily resize and Compress images online for free.
+                    <Typography variant="body1">
+                        Resize and Compress images online for free.
                     </Typography>
                 </div>
 
@@ -340,10 +339,10 @@ const FileCompression = () => {
 
                     {file && (
                         <div className="UserChoiceAction">
-                            <Typography variant="h4">Choose an option:</Typography>
+                            <Typography variant="h5">Choose an Option:</Typography>
                             <div className="actionbtnwrapper">
-                                <button className="filecompressionbtn" disabled={choice === 'resize'} onClick={() => setChoice('resize')}>Resize Image</button>
-                                <button className="filecompressionbtn" disabled={choice === 'compress'} onClick={() => setChoice('compress')}>Compress Image</button>
+                                <button className="filecompressionbtn optionbtn" disabled={choice === 'resize'} onClick={() => setChoice('resize')}>Resize Image</button>
+                                <button className="filecompressionbtn optionbtn" disabled={choice === 'compress'} onClick={() => setChoice('compress')}>Compress Image</button>
                             </div>
 
                         </div>
@@ -436,7 +435,7 @@ const FileCompression = () => {
                                                 name="ascpectRatio"
                                                 id="ascpectRatio"
                                                 checked={keepAspectRatio}
-                                                onChange={() => setkeepAspectRatio(true)}
+                                                onChange={() => setkeepAspectRatio(!keepAspectRatio)}
                                             />
 
                                         </>
@@ -461,9 +460,24 @@ const FileCompression = () => {
                                 {choice === "compress" &&
                                     <div className="InputElement qualitydiv">
 
-                                        <div>
-                                            <label htmlFor="targetCompressSize">Quality  </label>
-                                            <input
+
+                                        <label htmlFor="targetCompressSize">Quality  </label>
+
+                                        <Slider
+                                            step={1}
+                                            aria-label="Default"
+                                            value={quality}
+                                            type="number"
+                                            name="targetQuality"
+                                            id="targetQuality"
+                                            valueLabelDisplay="on"
+
+                                            min={0}
+                                            max={100}
+                                            onChange={(e, newValue) => setQuality(Number(newValue))}
+
+                                        />
+                                        {/* <input
                                                 step="0.01"
                                                 min="0"
                                                 max="1"
@@ -472,9 +486,8 @@ const FileCompression = () => {
                                                 id="targetQuality"
                                                 value={quality}
                                                 onChange={e => setQuality(Number(e.target.value))}
-                                            />
-                                        </div>
-                                        <Typography variant="caption">Only value between 0 to 1</Typography>
+                                            /> */}
+
                                     </div>
                                 }
 
@@ -527,7 +540,7 @@ const FileCompression = () => {
                                     choice === "compress" &&
 
                                     <button className="filecompressionbtn compressbtn" variant="contained" onClick={handleCompression}
-                                        disabled={!file && !processing}>
+                                        disabled={processing}>
                                         Compress
 
                                     </button>
@@ -537,7 +550,7 @@ const FileCompression = () => {
                                     choice === "resize" &&
 
                                     <button className="filecompressionbtn compressbtn" variant="contained" onClick={handleResizeImage}
-                                        disabled={!file && !processing}>
+                                        disabled={processing}>
                                         Resize Image
                                     </button>
                                 }
@@ -545,7 +558,7 @@ const FileCompression = () => {
                                     choice === "compress" && targetImage
                                     &&
                                     <button className="filecompressionbtn compressbtn" variant="contained" onClick={handleResizeImageCompress}
-                                        disabled={!file && !processing}>
+                                        disabled={processing}>
                                         Resize
                                     </button>
                                 }
@@ -568,10 +581,13 @@ const FileCompression = () => {
 
 
                         }
-
-                        <div className="loader">
-                            {processing && <LinearProgress />}
-                        </div>
+                        {processing &&
+                            <div className="loader">
+                                <Typography variant="h5" style={{ marginBottom: "10px" }}>
+                                    {`${choice}ing...`}
+                                </Typography>
+                                <LinearProgress />
+                            </div>}
                     </div>)
 
                 }
