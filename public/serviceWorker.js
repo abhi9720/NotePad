@@ -10,6 +10,11 @@ const urlsToCache = [
     "/imgresizer.png",
     "/notepadbg.svg",
     "/Icon-notepad.png",
+    "./shortcutsIcons/NotepadIcon.png",
+    "./shortcutsIcons/newsIcon.png",
+    "./shortcutsIcons/ImgResizerIcon.png",
+    "./shortcutsIcons/todoIcon.png",
+    "./ScreenShots/rapidapps.netlify.app_1280x920.png",
     "/static/js/main.e4fb9ca4.js", //<--- New Bundle Added
     "/static/css/main.dfe69c4d.css", //<--- New Bundle Added
 ];

@@ -19,12 +19,76 @@
     {
       "src": "./icons/maskable_icon_x384.png",
       "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "./icons/maskable_icon_x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Note Pad",
+      "url": "./notepad",
+      "description": "Notepad is a user-friendly text editor with advanced features",
+      "icons": [
+        {
+          "src": "./shortcutsIcons/NotepadIcon.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "News",
+      "short_name": "News",
+      "url": "./news",
+      "description": "News app with offline access, text and category search, and personalized news experience.",
+      "icons": [
+        {
+          "src": "./shortcutsIcons/newsIcon.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "ImgResizer",
+      "short_name": "ImgResizer",
+      "url": "./img-compress",
+      "description": "Easily resize images online for free.",
+      "icons": [
+        {
+          "src": "./shortcutsIcons/ImgResizerIcon.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Task Tracker",
+      "short_name": "Task Tracker",
+      "url": "./task-tracker",
+      "description": "Task tracker with add, edit, delete task features, saves progress offline and works without internet.",
+      "icons": [
+        {
+          "src": "./shortcutsIcons/todoIcon.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./ScreenShots/rapidapps.netlify.app_1280x920.png",
+      "sizes": "920x409",
+      "type": "image/png",
+      "description": "The type of your image, such as image/png",
+      "form_factor": "wide"
     }
   ]
 }
