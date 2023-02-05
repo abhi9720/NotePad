@@ -209,8 +209,13 @@ const Notepad = () => {
         localStorage.setItem("userfontsize", Math.max(fontSize - 1, 12))
     }
     const handleClear = () => {
-        localStorage.setItem("text", '')
+        setPreviousStates([text]);
+        setFutureStates([])
+        localStorage.removeItem("text")
+        localStorage.removeItem('futureStates')
+        localStorage.removeItem('previousStates');
         setText('');
+
     }
 
     function handleFileInput(event) {

@@ -1,7 +1,7 @@
 {
   "name": "Rapid Apps",
   "short_name": "Rapid Apps",
-  "description": "A progressive web app that combines a notepad, news feed, and to-do list in one easy-to-use package. Features include copy-paste and print functions, customizable news categories, and a simple to-do list to keep track of daily tasks.",
+  "description": "A progressive web app that combines a notepad, news feed, Image Resizer, and to-do list in one easy-to-use package.",
   "theme_color": "#fff",
   "background_color": "#fff",
   "display": "standalone",
@@ -59,7 +59,7 @@
       "name": "ImgResizer",
       "short_name": "ImgResizer",
       "url": "./img-compress",
-      "description": "Easily resize images online for free.",
+      "description": "Easily resize and Compress images online for free.",
       "icons": [
         {
           "src": "./shortcutsIcons/ImgResizerIcon.png",
@@ -86,6 +86,13 @@
     {
       "src": "./ScreenShots/rapidapps.netlify.app_1280x920.png",
       "sizes": "920x409",
+      "type": "image/png",
+      "description": "The type of your image, such as image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "./ScreenShots/rapidapps.netlify.app_(Moto G4).png",
+      "sizes": "1260x2415",
       "type": "image/png",
       "description": "The type of your image, such as image/png",
       "form_factor": "wide"

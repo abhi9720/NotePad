@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.8",
     "react-image-compressor": "^1.0.1",
+    "react-image-file-resizer": "^0.4.8",
     "react-modal": "^3.16.1",
     "react-pwa-install": "^1.0.12",
     "react-router-dom": "^6.7.0",
