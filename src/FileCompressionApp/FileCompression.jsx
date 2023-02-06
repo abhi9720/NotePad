@@ -168,7 +168,7 @@ const FileCompression = () => {
             targetImageProperty.width,
             targetImageProperty.height,
             targetImageProperty.convertType,
-            100,
+            quality,
             0,
             (resfile) => {
                 setTargetImage(resfile);
@@ -198,17 +198,17 @@ const FileCompression = () => {
 
     const handleResizeImageCompress = async () => {
         setProcessing(true)
-        console.log(targetImageProperty.height, targetImageProperty.width)
+
         ImageResizer.imageFileResizer(
             file,
             targetImageProperty.height,
             targetImageProperty.width,
             targetImageProperty.convertType,
-            100,
+            quality,
             0,
             (resfile) => {
                 setTargetImage(resfile);
-
+                setProcessing(false);
 
                 const reader = new FileReader();
                 reader.readAsDataURL(resfile);
@@ -230,7 +230,7 @@ const FileCompression = () => {
             targetImageProperty.height,
             targetImageProperty.width,
         )
-        setProcessing(false)
+
     }
 
 
@@ -305,10 +305,10 @@ const FileCompression = () => {
             <div className="fileCompressionContainer">
 
                 <div className="heroTitle">
-                    <Typography variant="h2">
+                    <Typography variant="h1">
                         ImgResizer
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="h7">
                         Resize and Compress images online for free.
                     </Typography>
                 </div>
@@ -339,10 +339,10 @@ const FileCompression = () => {
 
                     {file && (
                         <div className="UserChoiceAction">
-                            <Typography variant="h5">Choose an Option:</Typography>
+                            <Typography variant="h4">Choose an Option:</Typography>
                             <div className="actionbtnwrapper">
-                                <button className="filecompressionbtn optionbtn" disabled={choice === 'resize'} onClick={() => setChoice('resize')}>Resize Image</button>
-                                <button className="filecompressionbtn optionbtn" disabled={choice === 'compress'} onClick={() => setChoice('compress')}>Compress Image</button>
+                                <button className="btn-12" disabled={choice === 'resize'} onClick={() => setChoice('resize')}>Resize Image</button>
+                                <button className="btn-12" disabled={choice === 'compress'} onClick={() => setChoice('compress')}>Compress Image</button>
                             </div>
 
                         </div>
@@ -354,17 +354,16 @@ const FileCompression = () => {
 
 
                 {!file && <div className="InstructionDisplay">
-                    <Typography variant="h4">How to Resize an Image?</Typography>
+                    <Typography variant="h2">How to Resize an Image?</Typography>
                     <div className="InstructionDisplaywrapper">
                         <img src="../../compresslogo.jpg" alt="compresslogo" className="InstructionLogo" />
 
                         <ul className="Instruction">
                             <li>
-                                <b>Upload or drop a file </b> an image.
+                                <b>Upload or drop </b> an image.
                             </li>
                             <li>
-                                Choose an Option <b>"Resize</b> or <b>Compress"</b>
-
+                                Choose Action on image  <b>"Resize</b> or <b>Compress"</b>
                             </li>
                             <li>
                                 Enter <b>"Quality and Dimensaion:</b> for new Image.
@@ -457,27 +456,27 @@ const FileCompression = () => {
 
                             <div className="compressActionPannel">
 
-                                {choice === "compress" &&
-                                    <div className="InputElement qualitydiv">
+
+                                <div className="InputElement qualitydiv">
 
 
-                                        <label htmlFor="targetCompressSize">Quality  </label>
+                                    <label htmlFor="targetCompressSize">Quality  </label>
 
-                                        <Slider
-                                            step={1}
-                                            aria-label="Default"
-                                            value={quality}
-                                            type="number"
-                                            name="targetQuality"
-                                            id="targetQuality"
-                                            valueLabelDisplay="on"
+                                    <Slider
+                                        step={1}
+                                        aria-label="Default"
+                                        value={quality}
+                                        type="number"
+                                        name="targetQuality"
+                                        id="targetQuality"
+                                        valueLabelDisplay="on"
+                                        style={{ color: "#0052cc" }}
+                                        min={0}
+                                        max={100}
+                                        onChange={(e, newValue) => setQuality(Number(newValue))}
 
-                                            min={0}
-                                            max={100}
-                                            onChange={(e, newValue) => setQuality(Number(newValue))}
-
-                                        />
-                                        {/* <input
+                                    />
+                                    {/* <input
                                                 step="0.01"
                                                 min="0"
                                                 max="1"
@@ -488,8 +487,8 @@ const FileCompression = () => {
                                                 onChange={e => setQuality(Number(e.target.value))}
                                             /> */}
 
-                                    </div>
-                                }
+                                </div>
+
 
                                 {choice === "compress" &&
                                     <div className="InputElement targetCompresswrapper">
@@ -539,7 +538,7 @@ const FileCompression = () => {
                                 {
                                     choice === "compress" &&
 
-                                    <button className="filecompressionbtn compressbtn" variant="contained" onClick={handleCompression}
+                                    <button className="button-58" variant="contained" onClick={handleCompression}
                                         disabled={processing}>
                                         Compress
 
@@ -549,7 +548,7 @@ const FileCompression = () => {
                                 {
                                     choice === "resize" &&
 
-                                    <button className="filecompressionbtn compressbtn" variant="contained" onClick={handleResizeImage}
+                                    <button className="button-58" variant="contained" onClick={handleResizeImage}
                                         disabled={processing}>
                                         Resize Image
                                     </button>
@@ -557,7 +556,7 @@ const FileCompression = () => {
                                 {
                                     choice === "compress" && targetImage
                                     &&
-                                    <button className="filecompressionbtn compressbtn" variant="contained" onClick={handleResizeImageCompress}
+                                    <button className="button-58" variant="contained" onClick={handleResizeImageCompress}
                                         disabled={processing}>
                                         Resize
                                     </button>
@@ -583,9 +582,7 @@ const FileCompression = () => {
                         }
                         {processing &&
                             <div className="loader">
-                                <Typography variant="h5" style={{ marginBottom: "10px" }}>
-                                    {`${choice}ing...`}
-                                </Typography>
+
                                 <LinearProgress />
                             </div>}
                     </div>)
@@ -594,7 +591,7 @@ const FileCompression = () => {
                 {file &&
                     <div className="displayImageWrapper">
                         <div className="orginalImageWrapper">
-                            <Typography variant="h6">Orginal Image </Typography>
+                            <Typography variant="h5">Orginal Image </Typography>
                             <img className="orginalImage" src={URL.createObjectURL(file)} alt="orginalImage" />
                             {
                                 <div>
@@ -607,7 +604,7 @@ const FileCompression = () => {
                         {targetImage && !processing && (
                             <div className="compressedImageWrapper">
 
-                                <Typography variant="h6">Compressed Image </Typography>
+                                <Typography variant="h5">Compressed Image </Typography>
                                 <img className="compressedImage" src={URL.createObjectURL(targetImage)} alt="Compressed" />
                                 {
 
@@ -627,11 +624,11 @@ const FileCompression = () => {
                 {
                     targetImage &&
                     <div className="compressedImageShare">
-                        <button className="filecompressionbtn" variant="outlined" onClick={handleDownload} disabled={processing}>
+                        <button className="button-58 sharebtn" variant="outlined" onClick={handleDownload} disabled={processing}>
                             Download <DownloadIcon />
                         </button>
 
-                        <button className="filecompressionbtn" variant="outlined" onClick={handleShare} disabled={processing}>
+                        <button className="button-58 sharebtn" variant="outlined" onClick={handleShare} disabled={processing}>
                             Share <ShareIcon></ShareIcon>
                         </button>
 

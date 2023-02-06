@@ -1,7 +1,7 @@
 :root {
     --containerPadding: 70px;
     --wrapperwidth: 90vw;
-    --wrapperRadius: 10px;
+    --wrapperRadius: 20px;
     --imageWidth: 44vw;
 }
 
@@ -14,17 +14,14 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    text-transform: capitalize;
+
+
 }
+
 
 .fileCompressionContainer {
     width: 100vw;
     min-height: 100vh;
-    background-color: #f5f8ff;
-    background-image: url(https://wac-cdn.atlassian.com/dam/jcr:5cbd1759-629a-4013-aec3-b93543e2d7b6/Pattern_Hero-Top-Right-Mobile_2x.png?cdnVersion=755), linear-gradient(180deg, #B3D4FF -3.22%, #DEEBFF 1.65%, rgba(222, 235, 255, 0) 25.71%);
-    background-position: top right, 0 0;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 171px 123px, auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,16 +31,15 @@
 
 .InstructionDisplay {
     padding: 30px;
-    margin-top: 20px;
     width: var(--wrapperwidth);
-    border: 2px solid #e2e8f0;
-    border-radius: 20px;
+    border: 2px solid rgb(245, 246, 255);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    margin-bottom: 20px;
+    border-radius: 24px;
+    margin: 150px 0;
 }
 
 .InstructionDisplaywrapper {
@@ -52,14 +48,9 @@
     justify-content: space-evenly;
     align-items: center;
     gap: 40px;
-    color: #253858;
+    color: #000;
 }
 
-.InstructionDisplaywrapper ul {
-    margin: 0;
-    padding: 0;
-
-}
 
 .InstructionDisplaywrapper img {
     max-width: 300px;
@@ -82,21 +73,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    margin-bottom: 100px;
 }
 
-.heroTitle h2 {
-    color: #0072e5;
-    font-weight: 800;
-}
 
-.heroTitle p {
-    text-align: center;
-    color: #253858;
-}
+
 
 .breadcum {
-    background-color: #fff;
+    background-color: white;
     z-index: 100;
 }
 
@@ -106,12 +90,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: var(--wrapperRadius);
     min-width: calc(var(--wrapperwidth));
     padding: 50px 20px;
-    background-color: #fff;
-    border: 2px solid #e2e8f0;
-    margin-bottom: 20px;
+
+    /* border: 2px solid #e2e8f0; */
+    /* margin-bottom: 20px; */
 }
 
 .filenamedisplay p {
@@ -119,7 +102,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 10px !important;
+    margin-top: 30px !important;
     overflow: hidden;
     gap: 10px;
 }
@@ -132,7 +115,6 @@
     flex-direction: column;
     margin: 30px 0 0px 0;
     width: 100%;
-
 }
 
 .actionbtnwrapper {
@@ -146,20 +128,20 @@
 .ActionPannelWrapper {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    border-radius: var(--wrapperRadius);
-    background-color: white;
-    margin-bottom: 20px;
-    width: var(--wrapperwidth);
+    margin-top: 50px;
+    background-color: #fff;
+    width: calc(var(--wrapperwidth));
     border: 2px solid #e2e8f0;
+    padding: 50px 0 20px 0;
 
 
 }
 
 .ActionPannel {
     display: flex;
-    justify-content: space-around;
-    gap: 30px;
+    justify-content: center;
+    gap: 120px;
+
 }
 
 .InputElement {
@@ -221,7 +203,6 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    border-radius: var(--wrapperRadius);
     gap: 20px;
 
 }
@@ -229,15 +210,13 @@
 
 .displayImageWrapper {
     display: flex;
-
-
     border-radius: var(--wrapperRadius);
     background-color: white;
     width: var(--wrapperwidth);
-    border: 2px solid #e2e8f0;
+
 
     min-height: 700px !important;
-    margin-bottom: 20px;
+    padding: 30px 0px;
 
 }
 
@@ -249,6 +228,7 @@
     flex-direction: column;
     width: 100%;
     padding: 30px 10px;
+    border: 2px solid #e2e8f0;
 }
 
 .compressedImageWrapper {
@@ -271,18 +251,16 @@
 
 }
 
+
 .compressedImageShare {
-    width: var(--wrapperwidth);
+    width: calc(var(--wrapperwidth));
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 20px;
-    background-color: #fff;
-    padding: 30px;
-    border: 2px solid #e2e8f0;
-    border-radius: var(--wrapperRadius);
-    margin-bottom: 20px;
+    background-color: rgb(245, 246, 255);
+    padding: 50px 0;
 }
 
 
@@ -292,13 +270,11 @@
 }
 
 
-.filecompressionbtn {
+.btn-12 {
     color: #fff;
     background-color: #0052cc;
-
-    font-size: 16px;
-    height: 40px;
-    padding: 6.428571428571429px 15px;
+    font-size: 20px;
+    padding: 10px 15px;
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -307,7 +283,7 @@
 }
 
 .optionbtn {
-    background-color: white;
+    background-color: rgb(245, 246, 255);
     border: 2px solid #409eff;
     color: #409eff;
     transition: all 0.4s;
@@ -315,7 +291,7 @@
 
 .optionbtn:hover {
     background-color: #409eff;
-    color: white;
+    color: rgb(245, 246, 255);
 }
 
 .fileCompressionContainer button:disabled,
@@ -326,7 +302,31 @@
     border: none;
 }
 
+
+.fileUploaderWrapper label {
+    height: 300px;
+    min-width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.fileUploaderWrapper label svg {
+    width: 300px;
+    height: 300px;
+
+}
+
+.fileUploaderWrapper label span {
+    font-size: 20px;
+}
+
 @media(max-width:1000px) {
+
+
+
     :root {
 
         --wrapperwidth: 100vw;
@@ -363,8 +363,119 @@
         border: none;
         border-top: 1px solid #e2e8f0;
     }
+
+    .heroTitle h1 {
+        font-size: 4rem;
+    }
+
+
+    .InstructionDisplay {
+        padding: 30px 0;
+        border-radius: 0;
+    }
+
+    .InstructionDisplay h2 {
+        font-size: 1.75rem;
+        text-align: center;
+        width: 100%;
+        font-weight: 400;
+    }
+
+    .actionbtnwrapper {
+        flex-direction: column;
+    }
+
+    .fileUploaderWrapper label {
+        height: 200px !important;
+        width: 100vw !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fileUploaderWrapper label svg {
+        width: 100px !important;
+        height: 100px !important;
+    }
 }
 
 .file-types {
     display: none;
+}
+
+
+
+
+
+/* CSS */
+.button-58 {
+    align-items: center;
+    background-color: #06f;
+    border: 2px solid #06f;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: 0.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    display: flex;
+    gap: 10px;
+}
+
+.button-58:focus {
+    color: #171e29;
+}
+
+.button-58:hover {
+    background-color: #3385ff;
+    border-color: #3385ff;
+    fill: #06f;
+}
+
+.button-58:active {
+    background-color: #3385ff;
+    border-color: #3385ff;
+    fill: #06f;
+}
+
+@media (min-width: 768px) {
+    .button-58 {
+        min-width: 170px;
+    }
+}
+
+
+.fileUploaderWrapper label {
+    height: 300px;
+    min-width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.fileUploaderWrapper label svg {
+    width: 300px;
+    height: 300px;
+
+}
+
+.fileUploaderWrapper span {
+    font-size: large;
 }
