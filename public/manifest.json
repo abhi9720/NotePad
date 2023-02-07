@@ -1,14 +1,14 @@
 {
-  "name": "Rapid Apps",
-  "short_name": "Rapid Apps",
-  "description": "A progressive web app that combines a notepad, news feed, Image Resizer, and to-do list in one easy-to-use package.",
+  "name": "Daily Apps",
+  "short_name": "Daily Apps",
+  "description": "A progressive web app that combines a notepad, news feed, Image Resizer, and Task Tracker in one easy-to-use package.",
   "theme_color": "#fff",
   "background_color": "#fff",
   "display": "standalone",
   "orientation": "portrait",
   "prefer_related_applications": false,
   "scope": "/",
-  "id": "rapidapp",
+  "id": "Dailyapp",
   "start_url": "/",
   "icons": [
     {
@@ -84,17 +84,9 @@
   ],
   "screenshots": [
     {
-      "src": "./ScreenShots/rapidapps.netlify.app_1280x920.png",
-      "sizes": "920x409",
+      "src": "./ScreenShots/Dailyapps.netlify.app_520x324.png",
+      "sizes": "520x324",
       "type": "image/png",
-      "description": "The type of your image, such as image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "./ScreenShots/rapidapps.netlify.app_(Moto G4).png",
-      "sizes": "1260x2415",
-      "type": "image/png",
-      "description": "The type of your image, such as image/png",
       "form_factor": "wide"
     }
   ]

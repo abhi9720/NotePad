@@ -257,8 +257,8 @@ const FileCompression = () => {
                     type: blob.type,
                 }),
             ],
-            title: "https://rapidapps.netlify.app/img-compress",
-            text: 'Compress and Resize Image easily',
+            title: "https://dailyapps.netlify.app/img-compress",
+            text: 'Free Online Image Resizing and Compression with https://dailyapps.netlify.app/img-compress',
         };
 
         try {
