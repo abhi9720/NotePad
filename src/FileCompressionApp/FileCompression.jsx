@@ -201,8 +201,8 @@ const FileCompression = () => {
 
         ImageResizer.imageFileResizer(
             file,
-            targetImageProperty.height,
             targetImageProperty.width,
+            targetImageProperty.height,
             targetImageProperty.convertType,
             quality,
             0,
@@ -227,8 +227,8 @@ const FileCompression = () => {
                 }
             },
             "file",
-            targetImageProperty.height,
             targetImageProperty.width,
+            targetImageProperty.height,
         )
 
     }
