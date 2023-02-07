@@ -30,7 +30,8 @@
 }
 
 .InstructionDisplay {
-    padding: 30px;
+    margin-top: 50px;
+    padding: 50px;
     width: var(--wrapperwidth);
     border: 2px solid rgb(245, 246, 255);
 
@@ -38,8 +39,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 24px;
-    margin: 150px 0;
 }
 
 .InstructionDisplaywrapper {
@@ -68,12 +67,17 @@
 
 
 .heroTitle {
-    margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.heroTitle h1 {
+    font-size: 4.5rem;
+    font-weight: 600;
 }
 
 
@@ -92,6 +96,7 @@
     flex-direction: column;
     min-width: calc(var(--wrapperwidth));
     padding: 50px 20px;
+    background-color: rgb(244, 246, 248);
 
     /* border: 2px solid #e2e8f0; */
     /* margin-bottom: 20px; */
@@ -128,19 +133,32 @@
 .ActionPannelWrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
     background-color: #fff;
     width: calc(var(--wrapperwidth));
-    border: 2px solid #e2e8f0;
     padding: 50px 0 20px 0;
+}
 
+fieldset {
+    border: 2px solid #e2e8f0;
+    padding: 0;
+    margin-top: 30px;
+    /* first row, first column */
+}
+
+fieldset legend {
+    font: 15pt/0 'Averia Serif Libre';
+    margin: auto 30px;
+    /* to center */
+    padding: 0 4px;
+    text-transform: capitalize;
+    font-family: 'Roboto Light', sans-serif;
 
 }
 
 .ActionPannel {
     display: flex;
-    justify-content: center;
-    gap: 120px;
+    justify-content: space-evenly;
+
 
 }
 
@@ -153,7 +171,8 @@
 }
 
 .InputElement label {
-    color: #000000b0;
+    color: #000000;
+    font-weight: 700 !important;
 }
 
 .InputElement input {
@@ -186,7 +205,7 @@
 
 .qualitydiv {
     display: flex;
-    flex-direction: column;
+    gap: 20px;
 }
 
 .notice {
@@ -302,27 +321,6 @@
     border: none;
 }
 
-
-.fileUploaderWrapper label {
-    height: 300px;
-    min-width: 60vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.fileUploaderWrapper label svg {
-    width: 300px;
-    height: 300px;
-
-}
-
-.fileUploaderWrapper label span {
-    font-size: 20px;
-}
-
 @media(max-width:1000px) {
 
 
@@ -349,7 +347,7 @@
 
     .ActionPannel {
         flex-direction: column;
-
+        gap: 20px;
     }
 
     .option {
@@ -385,17 +383,13 @@
         flex-direction: column;
     }
 
-    .fileUploaderWrapper label {
-        height: 200px !important;
-        width: 100vw !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
-    .fileUploaderWrapper label svg {
-        width: 100px !important;
-        height: 100px !important;
+    .qualitydiv {
+        flex-direction: row;
+
+        justify-content: space-between;
+        gap: 30px;
+        padding: 10px 30px;
     }
 }
 
@@ -460,22 +454,29 @@
 }
 
 
-.fileUploaderWrapper label {
-    height: 300px;
-    min-width: 60vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 30px;
-}
 
-.fileUploaderWrapper label svg {
-    width: 300px;
-    height: 300px;
 
-}
+@media(min-width:700px) {
+    .fileUploaderWrapper label {
+        height: 250px;
+        min-width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        border: dashed 5px #0658c2;
+        background-color: #97b4de29;
+    }
 
-.fileUploaderWrapper span {
-    font-size: large;
+    .fileUploaderWrapper label svg {
+        width: 300px;
+        height: 300px;
+
+    }
+
+    .fileUploaderWrapper label span {
+        font-size: 20px;
+    }
+
 }
