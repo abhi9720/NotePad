@@ -21,6 +21,7 @@
 }
 
 .logoapp {
-    width: 120px !important;
+    width: 200px;
+    max-height: 50px !important;
     user-select: none;
 }

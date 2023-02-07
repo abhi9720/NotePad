@@ -6,11 +6,11 @@ const Navbar = () => {
         <>
             <div className="navbar">
 
-                <div >
-                    <NavLink to="/">
-                        <img className='logoapp' src="../../navbarlogo.png" alt="logoapp" />
-                    </NavLink>
-                </div>
+
+                <NavLink to="/">
+                    <img className='logoapp' src="../../logos/navbarlogo.png" alt="logoapp" />
+                </NavLink>
+
 
             </div>
         </>

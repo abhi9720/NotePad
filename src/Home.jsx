@@ -32,7 +32,7 @@ const Home = () => {
                 <div className='contentWrapper'>
                     <div className="homeheadingwrapper">
                         <Typography variant='h2' className='homepageheading'>
-                            Pick Your Rapidly Used Apps at
+                            Pick Your Daily Apps at
                             <br />
                             <span className='highlight'>
                                 <b>One Spot</b>

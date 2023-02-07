@@ -13,7 +13,7 @@ const NavInshorts = ({ setCategory }) => {
 
         <div className="navrbarlogowarpper">
           <NavLink to="/">
-            <img className='logoapp' src="../../navbarlogo.png" alt="logoapp" />
+            <img className='logoapp' src="../../logos/navbarlogo.png" alt="logoapp" />
           </NavLink>
         </div>
       </div>
