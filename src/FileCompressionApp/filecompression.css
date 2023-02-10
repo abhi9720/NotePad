@@ -2,7 +2,7 @@
     --containerPadding: 70px;
     --wrapperwidth: 90vw;
     --wrapperRadius: 20px;
-    --imageWidth: 44vw;
+    --imageWidth: 35vw;
 }
 
 * {
@@ -27,6 +27,7 @@
     align-items: center;
     flex-direction: column;
     padding: var(--containerPadding) 0 0;
+    background-color: #f2f6fa;
 }
 
 .InstructionDisplay {
@@ -77,7 +78,7 @@
 
 .heroTitle h1 {
     font-size: 4.5rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 
@@ -135,30 +136,17 @@
     flex-direction: column;
     background-color: #fff;
     width: calc(var(--wrapperwidth));
-    padding: 50px 0 20px 0;
-}
-
-fieldset {
-    border: 2px solid #e2e8f0;
-    padding: 0;
-    margin-top: 30px;
-    /* first row, first column */
-}
-
-fieldset legend {
-    font: 15pt/0 'Averia Serif Libre';
-    margin: auto 30px;
-    /* to center */
-    padding: 0 4px;
-    text-transform: capitalize;
-    font-family: 'Roboto Light', sans-serif;
+    padding: 20px 0 20px 0;
 
 }
+
+
 
 .ActionPannel {
     display: flex;
     justify-content: space-evenly;
 
+    padding: 20px 0;
 
 }
 
@@ -229,14 +217,12 @@ fieldset legend {
 
 .displayImageWrapper {
     display: flex;
-    border-radius: var(--wrapperRadius);
     background-color: white;
     width: var(--wrapperwidth);
-
-
     min-height: 700px !important;
     padding: 30px 0px;
 
+    margin-bottom: 30px;
 }
 
 .orginalImageWrapper,
@@ -247,11 +233,10 @@ fieldset legend {
     flex-direction: column;
     width: 100%;
     padding: 30px 10px;
-    border: 2px solid #e2e8f0;
 }
 
 .compressedImageWrapper {
-    border-left: 1px solid #e2e8f0;
+    border-left: 2px solid #e2e8f0;
 }
 
 .orginalImageWrapper p,
@@ -278,7 +263,7 @@ fieldset legend {
     align-items: center;
     flex-direction: row;
     gap: 20px;
-    background-color: rgb(245, 246, 255);
+
     padding: 50px 0;
 }
 
@@ -327,8 +312,8 @@ fieldset legend {
 
     :root {
 
-        --wrapperwidth: 100vw;
-        --imageWidth: 98vw;
+        --wrapperwidth: 97vw;
+        --imageWidth: 85vw;
         --containerPadding: 50px;
         --wrapperRadius: 0;
     }
@@ -341,9 +326,6 @@ fieldset legend {
         flex-direction: column;
     }
 
-    .orginalImageWrapper {
-        border-right: none;
-    }
 
     .ActionPannel {
         flex-direction: column;
