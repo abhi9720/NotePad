@@ -296,7 +296,7 @@ const FileCompression = () => {
                         to="/img-compress"
                     >
 
-                        <Chip icon={<CompressIcon />} label="Note Pad" />
+                        <Chip icon={<CompressIcon />} label="ImgResizer" />
 
 
                     </NavLink>
@@ -355,7 +355,7 @@ const FileCompression = () => {
 
 
                 {!file && <div className="InstructionDisplay">
-                    <Typography variant="h2">How to Resize an Image?</Typography>
+                    <Typography variant="h4">How to Resize an Image?</Typography>
                     <div className="InstructionDisplaywrapper">
                         <img src="../../compresslogo.jpg" alt="compresslogo" className="InstructionLogo" />
 
