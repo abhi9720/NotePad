@@ -315,27 +315,33 @@ const FileCompression = () => {
                 </div>
 
 
-                <div className="fileUploaderWrapper">
-                    <FileUploader
-                        multiple={false}
-                        handleChange={handleFileChange}
-                        name="file"
-                        types={fileTypes}
-                    />
-                    <Typography className="filenamedisplay" variant="div">
-                        {file ? <p>
-                            {`File name: ${file.name}`}
-                            <IconButton onClick={clearData}>
-                                <DeleteIcon style={{ color: 'rgb(219 20 54)' }} />
-                            </IconButton>
-                        </p> :
+                <div className="fileUploader">
+                    <div className="fileUploaderWrapper">
+                        <FileUploader
+                            multiple={false}
+                            handleChange={handleFileChange}
+                            name="file"
+                            types={fileTypes}
+                        />
+                        <Typography className="filenamedisplay" variant="div">
+                            {file ? <p>
+                                {`File name: ${file.name}`}
+                                <IconButton onClick={clearData}>
+                                    <DeleteIcon style={{ color: 'rgb(219 20 54)' }} />
+                                </IconButton>
+                            </p> :
 
-                            <p>No File Uploaded Yet</p>
-                        }
+                                <p>No File Uploaded Yet</p>
+                            }
 
 
-                    </Typography>
+                        </Typography>
 
+
+
+
+
+                    </div>
 
 
                     {file && (
@@ -378,111 +384,114 @@ const FileCompression = () => {
 
                     </div>
                 </div>}
-                {
-                    choice !== null && file &&
 
 
-                    <div className="ActionPannelWrapper">
-
-                        <Typography gutterBottom variant="h6" component="div" textAlign="center">
-                            {choice === "resize" ? "Resizing" : "Compressing"}
-                        </Typography>
-                        <Divider variant="middle" />
+                <div className="wrapppingapp">
+                    {
+                        choice !== null && file &&
 
 
-                        <div className="ActionPannel">
+                        <div className="ActionPannelWrapper">
+
+                            <p className="actionname">
+                                {choice === "resize" ? "Resizing" : "Compressing"}
+                            </p>
+                            <Divider variant="middle" />
 
 
-                            <div className="resizeActionPannel">
-
-                                <div className="InputElement">
-                                    <label htmlFor="width"> {choice === "compress" ? "Maximum - " : ""}Width </label>
+                            <div className="ActionPannel">
 
 
-                                    <input type="number"
-
-                                        name="width"
-                                        id="width"
-                                        value={targetImageProperty.width || ""}
-                                        onChange={handleOptionChange}
-                                        disabled={!file}
-                                    />
-                                </div>
-
-                                <div className="InputElement">
-                                    <label htmlFor="height"> {choice === "compress" ? "Maximum - " : ""} Height </label>
-                                    <input
-                                        type="number"
-                                        name="height"
-                                        id="height"
-                                        value={targetImageProperty.height || ""}
-                                        onChange={handleOptionChange}
-                                        disabled={!file}
-                                    />
-                                </div>
-
-                                {
-                                    choice === "compress" &&
-
+                                <div className="resizeActionPannel">
 
                                     <div className="InputElement">
-                                        <Typography variant="caption" color="primary" className="notice">
-                                            <InfoIcon></InfoIcon> Maximum of width and height Taken</Typography>
+                                        <label htmlFor="width"> {choice === "compress" ? "Maximum - " : ""}Width </label>
+
+
+                                        <input type="number"
+
+                                            name="width"
+                                            id="width"
+                                            value={targetImageProperty.width || ""}
+                                            onChange={handleOptionChange}
+                                            disabled={!file}
+                                        />
                                     </div>
-                                }
 
-                                <div className="aspectWrapper">
-                                    <label htmlFor="ascpectRatio">Aspect Ratio </label>
-                                    {choice === "resize" ?
+                                    <div className="InputElement">
+                                        <label htmlFor="height"> {choice === "compress" ? "Maximum - " : ""} Height </label>
+                                        <input
+                                            type="number"
+                                            name="height"
+                                            id="height"
+                                            value={targetImageProperty.height || ""}
+                                            onChange={handleOptionChange}
+                                            disabled={!file}
+                                        />
+                                    </div>
 
-                                        <>
+                                    {
+                                        choice === "compress" &&
+
+
+                                        <div className="InputElement">
+                                            <Typography variant="caption" color="primary" className="notice">
+                                                <InfoIcon></InfoIcon> Maximum of width and height Taken</Typography>
+                                        </div>
+                                    }
+
+                                    <div className="aspectWrapper">
+                                        <label htmlFor="ascpectRatio">Aspect Ratio </label>
+                                        {choice === "resize" ?
+
+                                            <>
+                                                <Switch
+                                                    name="ascpectRatio"
+                                                    id="ascpectRatio"
+                                                    checked={keepAspectRatio}
+                                                    onChange={() => setkeepAspectRatio(!keepAspectRatio)}
+                                                />
+
+                                            </>
+                                            :
                                             <Switch
                                                 name="ascpectRatio"
                                                 id="ascpectRatio"
                                                 checked={keepAspectRatio}
-                                                onChange={() => setkeepAspectRatio(!keepAspectRatio)}
-                                            />
+                                                onChange={() => setkeepAspectRatio(!keepAspectRatio)} />
+                                        }
+                                    </div>
 
-                                        </>
-                                        :
-                                        <Switch
-                                            name="ascpectRatio"
-                                            id="ascpectRatio"
-                                            checked={keepAspectRatio}
-                                            onChange={() => setkeepAspectRatio(!keepAspectRatio)} />
-                                    }
                                 </div>
 
-                            </div>
 
 
 
 
 
-
-                            <div className="compressActionPannel">
-
-
-                                <div className="InputElement qualitydiv">
+                                <div className="compressActionPannel">
 
 
-                                    <label htmlFor="targetCompressSize">Quality  </label>
+                                    <div className="InputElement qualitydiv">
 
-                                    <Slider
-                                        step={1}
-                                        aria-label="Default"
-                                        value={quality}
-                                        type="number"
-                                        name="targetQuality"
-                                        id="targetQuality"
-                                        valueLabelDisplay="on"
-                                        style={{ color: "#0052cc" }}
-                                        min={0}
-                                        max={100}
-                                        onChange={(e, newValue) => setQuality(Number(newValue))}
 
-                                    />
-                                    {/* <input
+                                        <label htmlFor="targetCompressSize">Quality  </label>
+
+                                        <Slider
+                                            step={1}
+                                            aria-label="Default"
+                                            value={quality}
+                                            type="number"
+                                            name="targetQuality"
+                                            id="targetQuality"
+                                            valueLabelDisplay="on"
+                                            style={{ color: "#0052cc" }}
+                                            min={0}
+                                            max={100}
+                                            onChange={(e, newValue) => setQuality(Number(newValue))}
+
+                                        />
+                                        {/* <input
                                                 step="0.01"
                                                 min="0"
                                                 max="1"
@@ -493,144 +502,147 @@ const FileCompression = () => {
                                                 onChange={e => setQuality(Number(e.target.value))}
                                             /> */}
 
-                                </div>
-
-
-                                {choice === "compress" &&
-                                    <div className="InputElement targetCompresswrapper">
-                                        <label htmlFor="targetCompressSize">Target Size (KB)  </label>
-                                        <input
-                                            type="number"
-                                            name="targetCompressSize"
-                                            id="targetCompressSize"
-                                            value={targetImageProperty.maxSize}
-                                            onChange={handleCompressSizeChange}
-                                        />
-
                                     </div>
-                                }
 
 
-                                <div className="InputElement">
-                                    <label htmlFor="convertType">Convert Type   </label>
-                                    <select
-                                        name="convertType"
-                                        id="convertType"
-                                        value={targetImageProperty.convertType}
-                                        onChange={handleOptionChange}
-                                    >
-                                        <option value="jpeg">JPEG</option>
-                                        <option value="png">PNG</option>
-                                        <option value="webp">WEBP</option>
-                                        <option value="jpg">JPG</option>
-                                        <option value="svg">SVG</option>
-                                        <option value="gif">GIF</option>
+                                    {choice === "compress" &&
+                                        <div className="InputElement targetCompresswrapper">
+                                            <label htmlFor="targetCompressSize">Target Size (KB)  </label>
+                                            <input
+                                                type="number"
+                                                name="targetCompressSize"
+                                                id="targetCompressSize"
+                                                value={targetImageProperty.maxSize}
+                                                onChange={handleCompressSizeChange}
+                                            />
+
+                                        </div>
+                                    }
+
+
+                                    <div className="InputElement">
+                                        <label htmlFor="convertType">Convert Type   </label>
+                                        <select
+                                            name="convertType"
+                                            id="convertType"
+                                            value={targetImageProperty.convertType}
+                                            onChange={handleOptionChange}
+                                        >
+                                            <option value="jpeg">JPEG</option>
+                                            <option value="png">PNG</option>
+                                            <option value="webp">WEBP</option>
+                                            <option value="jpg">JPG</option>
+                                            <option value="svg">SVG</option>
+                                            <option value="gif">GIF</option>
 
 
 
-                                    </select>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-
-
-
-                        </div>
-                        {
-                            file &&
-                            <div className="CompressbtnWrapper">
-
-                                {
-                                    choice === "compress" &&
-
-                                    <button className="button-58" variant="contained" onClick={handleCompression}
-                                        disabled={processing}>
-                                        Compress
-
-                                    </button>
-                                }
-
-                                {
-                                    choice === "resize" &&
-
-                                    <button className="button-58" variant="contained" onClick={handleResizeImage}
-                                        disabled={processing}>
-                                        Resize Image
-                                    </button>
-                                }
-                                {
-                                    choice === "compress" && targetImage
-                                    &&
-                                    <button className="button-58" variant="contained" onClick={handleResizeImageCompress}
-                                        disabled={processing}>
-                                        Resize
-                                    </button>
-                                }
-
-
-
 
 
 
                             </div>
-                        }
-
-
-                        {
-                            (choice === "compress" && targetImage)
-                            &&
-
-                            <Typography variant="caption" color="primary" className="notice">
-                                <InfoIcon></InfoIcon> Here Resize will be performed on Compressed Image</Typography>
-
-
-                        }
-                        {processing &&
-                            <div className="loader">
-
-                                <LinearProgress />
-                            </div>}
-                    </div>
-
-
-
-                }
-                {file &&
-                    <div className="displayImageWrapper">
-                        <div className="orginalImageWrapper">
-                            <Typography variant="h5">Orginal Image </Typography>
-                            <img className="orginalImage" src={URL.createObjectURL(file)} alt="orginalImage" />
                             {
-                                <div>
-                                    <p>Orginal Size(KB)<b>{"  " + ImageProperty.Size}</b></p>
-                                    <p>Dimension :{`${ImageProperty.width}x${ImageProperty.height}`} </p>
+                                file &&
+                                <div className="CompressbtnWrapper">
+
+                                    {
+                                        choice === "compress" &&
+
+                                        <button className="button-58" variant="contained" onClick={handleCompression}
+                                            disabled={processing}>
+                                            Compress
+
+                                        </button>
+                                    }
+
+                                    {
+                                        choice === "resize" &&
+
+                                        <button className="button-58" variant="contained" onClick={handleResizeImage}
+                                            disabled={processing}>
+                                            Resize Image
+                                        </button>
+                                    }
+                                    {
+                                        choice === "compress" && targetImage
+                                        &&
+                                        <button className="button-58" variant="contained" onClick={handleResizeImageCompress}
+                                            disabled={processing}>
+                                            Resize
+                                        </button>
+                                    }
+
+
+
+
+
+
                                 </div>
                             }
+
+
+                            {
+                                (choice === "compress" && targetImage)
+                                &&
+
+                                <Typography variant="caption" color="primary" className="notice">
+                                    <InfoIcon></InfoIcon> Here Resize will be performed on Compressed Image</Typography>
+
+
+                            }
+                            {processing &&
+                                <div className="loader">
+
+                                    <LinearProgress />
+                                </div>}
                         </div>
 
 
 
-                        {targetImage && !processing && (
-
-
-                            <div className="compressedImageWrapper">
-
-                                <Typography variant="h5"> Modified Image </Typography>
-                                <img className="compressedImage" src={URL.createObjectURL(targetImage)} alt="Compressed" />
+                    }
+                    {file &&
+                        <div className="displayImageWrapper">
+                            <div className="orginalImageWrapper">
+                                <Typography variant="h5">Orginal Image </Typography>
+                                <img className="orginalImage" src={URL.createObjectURL(file)} alt="orginalImage" />
                                 {
-
-
-
                                     <div>
-
-                                        <p >Compressed Size(KB)<b>{"  " + targetImageProperty?.compressedSize}</b></p>
-                                        <p>Dimension :{`${targetImageProperty?.width}x${targetImageProperty?.height}`} </p>
+                                        <p>Orginal Size(KB)<b>{"  " + ImageProperty.Size}</b></p>
+                                        <p>Dimension :{`${ImageProperty.width}x${ImageProperty.height}`} </p>
                                     </div>
                                 }
                             </div>
-                        )}
 
-                    </div>
-                }
+
+
+                            {targetImage && !processing && (
+
+
+                                <div className="compressedImageWrapper">
+
+                                    <Typography variant="h5"> Modified Image </Typography>
+                                    <img className="compressedImage" src={URL.createObjectURL(targetImage)} alt="Compressed" />
+                                    {
+
+
+
+                                        <div>
+
+                                            <p >Compressed Size(KB)<b>{"  " + targetImageProperty?.compressedSize}</b></p>
+                                            <p>Dimension :{`${targetImageProperty?.width}x${targetImageProperty?.height}`} </p>
+                                        </div>
+                                    }
+                                </div>
+                            )}
+
+                        </div>
+                    }
+                </div>
+
+
                 {
                     targetImage &&
                     <div className="compressedImageShare">
