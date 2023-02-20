@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import imageCompression from "browser-image-compression";
 import "./filecompression.css";
-import { Breadcrumbs, Chip, Divider, IconButton, LinearProgress, Slider, Switch, Typography } from "@mui/material";
+import { Breadcrumbs, Chip, IconButton, LinearProgress, Slider, Switch, Typography } from "@mui/material";
 import { FileUploader } from "react-drag-drop-files";
 import DownloadIcon from '@mui/icons-material/Download';
 import { NavLink } from "react-router-dom";
@@ -12,7 +12,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ImageResizer from "react-image-file-resizer";
 import InfoIcon from '@mui/icons-material/Info';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 const initialobj = {
     width: null,
     height: null,
@@ -273,6 +274,7 @@ const FileCompression = () => {
     };
 
 
+
     return (
         <>
 
@@ -346,12 +348,22 @@ const FileCompression = () => {
 
                     {file && (
                         <div className="UserChoiceAction">
-                            <Typography variant="h4">Choose an Option:</Typography>
-                            <div className="actionbtnwrapper">
-                                <button className="btn-12" disabled={choice === 'resize'} onClick={() => setChoice('resize')}>Resize Image</button>
-                                <button className="btn-12" disabled={choice === 'compress'} onClick={() => setChoice('compress')}>Compress Image</button>
-                            </div>
+                            <p className="useractiontitle">
+                                Choose action
+                            </p>
 
+                            <div className="actionbtnwrapper">
+                                <button className="tab-btn" disabled={choice === 'resize'} onClick={() => setChoice('resize')}>
+                                    <AspectRatioIcon /> Resize Image
+                                </button>
+
+                                <div className="divider">
+
+                                </div>
+                                <button className="tab-btn" disabled={choice === 'compress'} onClick={() => setChoice('compress')}>
+                                    <CloseFullscreenIcon />  Compress Image
+                                </button>
+                            </div>
                         </div>
                     )
                     }
@@ -393,10 +405,10 @@ const FileCompression = () => {
 
                         <div className="ActionPannelWrapper">
 
-                            <p className="actionname">
+                            {/* <p className="actionname">
                                 {choice === "resize" ? "Resizing" : "Compressing"}
-                            </p>
-                            <Divider variant="middle" />
+                            </p> */}
+                            {/* <Divider variant="middle" /> */}
 
 
                             <div className="ActionPannel">
@@ -544,6 +556,8 @@ const FileCompression = () => {
 
 
                             </div>
+
+
                             {
                                 file &&
                                 <div className="CompressbtnWrapper">
