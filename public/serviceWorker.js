@@ -3,7 +3,7 @@ const urlsToCache = [
     '/',
     'index.html',
     "/manifest.json",
-    "../../logos/navbarlogo.png",
+    "./logos/navbarlogo.png",
     "/NewsAppicon.png",
     "Icon-todo.png",
     "/home.gif",
@@ -15,8 +15,8 @@ const urlsToCache = [
     "./shortcutsIcons/ImgResizerIcon.png",
     "./shortcutsIcons/todoIcon.png",
     "./ScreenShots/Dailyapps.netlify.app_520x324.png",
-    "/static/js/main.8a116904.js", //<--- New Bundle Added
-    "/static/css/main.ca7a785d.css", //<--- New Bundle Added
+    "/static/js/main.b8fbc017.js", //<--- New Bundle Added
+    "/static/css/main.b86590d8.css", //<--- New Bundle Added
 ];
 
 
