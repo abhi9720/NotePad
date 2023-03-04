@@ -1,5 +1,5 @@
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -7,14 +7,12 @@
     padding: 0px 20px;
     z-index: 110;
     -webkit-box-pack: justify;
-
     flex-direction: row;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     justify-content: center;
     backdrop-filter: saturate(180%) blur(20px);
-
     box-shadow: rgb(0 0 0 / 5%) 0px 1px 0px 0px;
     user-select: none !important;
     background-color: white;

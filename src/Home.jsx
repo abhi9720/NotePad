@@ -23,6 +23,7 @@ const Card = ({ imgurl, text }) => {
 }
 
 const Home = () => {
+
     return (
         <>
             <Navbar />
@@ -31,7 +32,7 @@ const Home = () => {
 
                 <div className='contentWrapper'>
                     <div className="homeheadingwrapper">
-                        <Typography variant='h2' className='homepageheading'>
+                        <Typography variant='h1' component="h1" className='homepageheading'>
                             Pick Your Daily Apps at
                             <br />
                             <span className='highlight'>
@@ -55,6 +56,11 @@ const Home = () => {
                         </NavLink>
                         <NavLink to="/img-compress">
                             <Card imgurl={'../../../imgresizer.png'} text="ImgResizer"></Card>
+                        </NavLink>
+
+                        <NavLink to="/bg-remove">
+
+                            <Card imgurl={'../../../bgremove-logo-icon.png'} text="bgRemove"></Card>
                         </NavLink>
 
                     </div>

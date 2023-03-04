@@ -1,18 +1,19 @@
 import React from 'react'
-import './navbar.css'
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
     return (
         <>
-            <div className="navbar">
+            <nav className="sticky top-0 w-full bg-white border-b border-gray-300 z-50 p-2 flex justify-center">
+
+
 
 
                 <NavLink to="/">
-                    <img className='logoapp' src="../../logos/navbarlogo.png" alt="logoapp" />
+                    <img className='h-12 w-auto' src="../../logos/navbarlogo.png" alt="logoapp" />
                 </NavLink>
 
 
-            </div>
+            </nav>
         </>
     )
 }

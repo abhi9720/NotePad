@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavInshorts = ({ setCategory }) => {
   return (<>
-    <div className="navbar">
+    <div className="navbarInsort">
       <div className="navbarwrapper">
         <div className="icon">
           <HamburgerDrawer setCategory={setCategory} />
