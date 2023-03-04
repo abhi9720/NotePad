@@ -15,8 +15,8 @@ const urlsToCache = [
     "./shortcutsIcons/ImgResizerIcon.png",
     "./shortcutsIcons/todoIcon.png",
     "./ScreenShots/Dailyapps.netlify.app_520x324.png",
-    "/static/js/main.878422d7.js", //<--- New Bundle Added
-    "/static/css/main.31430670.css", //<--- New Bundle Added
+    "/static/js/main.84de9c61.js", //<--- New Bundle Added
+    "/static/css/main.9428b3a6.css", //<--- New Bundle Added
 ];
 
 

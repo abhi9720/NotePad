@@ -5,26 +5,26 @@ import "tailwindcss/tailwind.css";
 
 
 // z-10 -mx-4  sm:mx-0 sm:rounded-3xl lg:w-1/2 lg:flex-none
-function Card({ title, imgurl, rmbg = false }) {
-    return (
+// function Card({ title, imgurl, rmbg = false }) {
+//     return (
 
 
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <div class="px-4 py-2">
-                <h2 class="text-gray-800  text-center text-xl font-bold">{title}</h2>
-            </div>
-            <img class="w-full h-96" src={imgurl} alt={title} style={rmbg ? {
-                backgroundColor: '#fff',
-                backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3LjkzNyA3LjkzOCIgaGVpZ2h0PSIzMCIgd2lkdGg9IjMwIj48cGF0aCBwYWludC1vcmRlcj0ic3Ryb2tlIGZpbGwgbWFya2VycyIgZD0iTS4wMTQuMDE0SDMuOTdWMy45N0guMDE0ek0zLjk3IDMuOTY4aDMuOTU0djMuOTU1SDMuOTd6IiBmaWxsPSIjZWVlZmYwIi8+PC9zdmc+)',
-                backgroundSize: '25px'
-            } : {}} />
+//         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+//             <div class="px-4 py-2">
+//                 <h2 class="text-gray-800  text-center text-xl font-bold">{title}</h2>
+//             </div>
+//             <img class="w-full h-96" src={imgurl} alt={title} style={rmbg ? {
+//                 backgroundColor: '#fff',
+//                 backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3LjkzNyA3LjkzOCIgaGVpZ2h0PSIzMCIgd2lkdGg9IjMwIj48cGF0aCBwYWludC1vcmRlcj0ic3Ryb2tlIGZpbGwgbWFya2VycyIgZD0iTS4wMTQuMDE0SDMuOTdWMy45N0guMDE0ek0zLjk3IDMuOTY4aDMuOTU0djMuOTU1SDMuOTd6IiBmaWxsPSIjZWVlZmYwIi8+PC9zdmc+)',
+//                 backgroundSize: '25px'
+//             } : {}} />
 
-        </div>
+//         </div>
 
 
-    )
+//     )
 
-}
+// }
 function RemoveBg() {
     const containerRef = React.useRef(null);
 
@@ -153,7 +153,7 @@ function RemoveBg() {
                         </h2>
 
                         <div className="bg-white p-4 rounded-lg shadow-lg">
-                            <img className="h-60 w-full rounded" src={(imageFile ? URL.createObjectURL(imageFile) : imageUrl) || "https://hotpot.ai/images/site/ai/background_remover/teaser_400.jpg"} alt="" style={{ objectFit: "fill" }} />
+                            <img className="h-60 w-full rounded" src={(imageFile ? URL.createObjectURL(imageFile) : imageUrl) || "https://hotpot.ai/images/site/ai/background_remover/teaser_400.jpg"} alt="" style={{ objectFit: "contain" }} />
                         </div>
 
                     </div>
@@ -211,12 +211,25 @@ function RemoveBg() {
 
             {resultUrl &&
 
-                <div className="overflow-hidden p-4 w-full bg-red">
-                    <div className="w-full rounded-lg gap-10 flex flex-col lg:flex-row justify-center items-center" >
-                        {/* <Card title={"Input Image"} imgurl={imageFile ? URL.createObjectURL(imageFile) : imageUrl} /> */}
-                        <Card title={"Output Image"} imgurl={resultUrl} rmbg={true} />
-                    </div>
+
+                <div className="bg-white p-4 rounded-lg shadow-lg w-60vw mt-10" style={{
+                    border: "1px solid #e2e8f0"
+                }}>
+                    <img className="h-96 w-full rounded w-60vw sm:w-100vw"
+                        src={resultUrl}
+                        alt=""
+                        style={{
+                            border: "2px solid #e2e8f0",
+                            objectFit: "contain",
+                            backgroundColor: '#fff',
+                            backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3LjkzNyA3LjkzOCIgaGVpZ2h0PSIzMCIgd2lkdGg9IjMwIj48cGF0aCBwYWludC1vcmRlcj0ic3Ryb2tlIGZpbGwgbWFya2VycyIgZD0iTS4wMTQuMDE0SDMuOTdWMy45N0guMDE0ek0zLjk3IDMuOTY4aDMuOTU0djMuOTU1SDMuOTd6IiBmaWxsPSIjZWVlZmYwIi8+PC9zdmc+)',
+                            backgroundSize: '25px'
+                        }}
+                    />
                 </div>
+
+
+
 
 
             }
