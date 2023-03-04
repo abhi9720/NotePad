@@ -1,10 +1,12 @@
-# RapidApps
+# RapidApps | Checkout [Click](https://dailyapps.netlify.app/) 👆🏻
 
+<blockquote >
 A single build containing all your frequent use apps - **RapidApps** is the ultimate solution for seamless, cross-platform experience. 
 
 This Progressive Web App (PWA) offers a native app-like experience and is much closer to an Android app that can be installed. With RapidApps, you get access to the most commonly used apps such as ImgResizer, Task Tracker, News Feed, and Notepad all in one place. 
+</blockquote>
 
----
+
 ![mobile (2)](https://user-images.githubusercontent.com/68281476/216881188-3eec4937-544b-48a5-8a88-f62ded78e0a9.png)
 
 ---
